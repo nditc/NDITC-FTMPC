@@ -5,6 +5,7 @@ import './globals.css';
 import Navbar from '@/Components/Layout/Navbar';
 import Footer from '@/Components/Layout/Footer';
 import { Toaster } from 'react-hot-toast';
+import { Suspense } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,7 +19,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
+        <Suspense>
+          <Navbar />
+        </Suspense>
         <div id="scrollToTop" className="w-0 h-0" />
         {children}
         <Footer />
