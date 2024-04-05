@@ -7,12 +7,17 @@ import { usePathname, useSearchParams } from 'next/navigation';
 import { RxCross2 } from 'react-icons/rx';
 import { Suspense } from 'react';
 import { LuLogIn } from 'react-icons/lu';
+import { auth } from '@/db/firebase';
+import { FiUser } from 'react-icons/fi';
+import { useAuthState } from 'react-firebase-hooks/auth';
+
 const Navbar = () => {
   const [showOptions, setShowOptions] = useState(false);
   const Route = usePathname();
   const Params = useSearchParams();
   const navRef = useRef<HTMLElement>(null);
   const [windowWidth, setWindowWidth] = useState(800);
+  const [userAuth, loading, error] = useAuthState(auth);
 
   useEffect(() => {
     const stateHandler = () => {
@@ -69,14 +74,25 @@ const Navbar = () => {
             />
           </Link>
           <div className="flex md:order-2 space-x-3   z-50 md:space-x-0 rtl:space-x-reverse">
-            <Link
-              href="/login"
-              type="button"
-              className="before:ease relative bg-primary_dark text-sm flex items-center overflow-hidden border Inter   shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-primary before:transition-all before:duration-300 hover:text-white hover:before:-rotate-180 text-white  font-ShareTechTown focus:ring-4 focus:outline-none focus:ring-secondary font-medium rounded-lg  px-4 md:px-2 lg:px-4 py-2 text-center"
-            >
-              <LuLogIn className="w-4 mr-2 z-10" />
-              <span className="relative z-10">LOGIN</span>
-            </Link>
+            {userAuth ? (
+              <Link
+                href="/profile"
+                type="button"
+                className="before:ease relative bg-primary_dark text-sm flex items-center overflow-hidden border Inter   shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-primary before:transition-all before:duration-300 hover:text-white hover:before:-rotate-180 text-white  font-ShareTechTown focus:ring-4 focus:outline-none focus:ring-secondary font-medium rounded-lg  px-4 md:px-2 lg:px-4 py-2 text-center"
+              >
+                <FiUser className="w-4 mr-2 z-10" />
+                <span className="relative z-10">PROFILE</span>
+              </Link>
+            ) : (
+              <Link
+                href="/login"
+                type="button"
+                className="before:ease relative bg-primary_dark text-sm flex items-center overflow-hidden border Inter   shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-primary before:transition-all before:duration-300 hover:text-white hover:before:-rotate-180 text-white  font-ShareTechTown focus:ring-4 focus:outline-none focus:ring-secondary font-medium rounded-lg  px-4 md:px-2 lg:px-4 py-2 text-center"
+              >
+                <LuLogIn className="w-4 mr-2 z-10" />
+                <span className="relative z-10">LOGIN</span>
+              </Link>
+            )}
             <button
               onClick={() => setShowOptions(!showOptions)}
               data-collapse-toggle="navbar-sticky"

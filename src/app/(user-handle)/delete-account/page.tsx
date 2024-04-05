@@ -7,8 +7,8 @@ import { auth, db } from '@/db/firebase';
 
 import { deleteUser, signInWithEmailAndPassword } from 'firebase/auth';
 
-import toast from 'react-hot-toast';
-import { CgSpinner } from 'react-icons/cg';
+import { toast } from 'react-toastify';
+import { CgArrowLeft, CgSpinner } from 'react-icons/cg';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { doc, DocumentReference, deleteDoc } from 'firebase/firestore';
@@ -38,7 +38,7 @@ const Page = () => {
             break;
           default:
             console.error(error.message);
-            toast.error('Aww! Snap!');
+            toast.error(error.message.replaceAll('Firebase: ', ''));
             break;
         }
         setLoading(false);
@@ -46,18 +46,23 @@ const Page = () => {
   };
   return (
     <div className="w-screen shadow-lg  shadow-secondary mt-[81px] bg-image md:min-h-[calc(100vh_-_81px)] grid place-items-center">
-      <div className="container-login w-full bg-white sm:rounded-xl flex pt-3 pb-8 sm:py-0 sm:my-16 min-h-[70vh]">
+      <div className="container-login w-full bg-white sm:rounded-xl flex pt-3 pb-8 sm:py-0 sm:my-16 min-h-[calc(100vh_-_81px)] md:min-h-[70vh]">
         <form
           className="flex flex-col grid-cols-1 gap-5 w-full lg:w-1/2 p-5 sm:p-12 justify-center"
           onSubmit={handleSubmit}
         >
+          <div className="flex justify-between text-sm md:text-base">
+            <button
+              className="text-primary font-medium border-b-2 border-transparent hover:border-primary ml-2 flex gap-2 items-center"
+              onClick={() => Router.back()}
+            >
+              <CgArrowLeft /> Go Back
+            </button>
+          </div>
           <h1 className="text-4xl">
             ACCOUNT <span className="text-primary">DELETION</span>
           </h1>
-          <p className="text-base">
-            Your account will be deleted so that you can register again. If your verification is
-            expired then you have delete account and register again.
-          </p>
+          <p className="text-base">If your delete your account then you have to register again.</p>
           <div className="flex flex-col gap-5 w-full">
             <Field
               state={email}

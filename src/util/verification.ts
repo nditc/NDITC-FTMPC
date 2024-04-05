@@ -16,15 +16,6 @@ const verifyData: (regData: regDataType, pass: string, confPass: string) => [boo
     return [false, "Password ans confirm password aren't same"];
   }
 
-  regData.fbLink = 'dsada';
-  regData.codeforcesHandle = 'dsdsd';
-
-  Object.values(regData).forEach((v) => {
-    if (v === '') {
-      return [false, 'Some fields are still missing'];
-    }
-  });
-
   return [true, 'Data Verified!'];
 };
 

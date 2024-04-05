@@ -12,6 +12,9 @@ const regDataInit = {
   institution: '',
   mobile: '',
   name: '',
+  verified: false,
+  tophHandle: '',
+  tophPassword: '',
 };
 
 type regDataType = typeof regDataInit;

@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Navbar from '@/Components/Layout/Navbar';
 import Footer from '@/Components/Layout/Footer';
-import { Toaster } from 'react-hot-toast';
+import { ToastContainer } from 'react-toastify';
 import { Suspense } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -25,22 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div id="scrollToTop" className="w-0 h-0" />
         {children}
         <Footer />
-        <Toaster
-          toastOptions={{
-            success: {
-              style: {
-                background: '#dcfce7',
-                color: '#16a34a',
-              },
-            },
-            error: {
-              style: {
-                background: '#fee2e2',
-                color: '#dc2626',
-              },
-            },
-          }}
-        />
+        <ToastContainer bodyClassName={'Inter'} position="top-center" />
       </body>
     </html>
   );

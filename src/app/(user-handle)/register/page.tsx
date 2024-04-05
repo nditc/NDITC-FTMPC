@@ -10,10 +10,11 @@ import { doc, setDoc } from 'firebase/firestore';
 import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
 
 import verifyData from '@/util/verification';
-
-import toast from 'react-hot-toast';
+import { AiOutlineUserAdd } from 'react-icons/ai';
+import { toast } from 'react-toastify';
 import { CgSpinner } from 'react-icons/cg';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 type actionType = {
   type: 'SET_FIELD';
@@ -46,11 +47,13 @@ const Page = () => {
         .then(async (userInfo) => {
           //add userInfo in Collections
           const uid = userInfo.user.uid;
-          await setDoc(doc(db, 'participants', uid), { ...regData, imageUrl: null });
-          await sendEmailVerification(userInfo.user);
-          toast.success('Email verification sent! Please verify your email then login.', {
-            duration: 6000,
+          await setDoc(doc(db, 'participants', uid), {
+            ...regData,
+            imageUrl:
+              'https://firebasestorage.googleapis.com/v0/b/ftmpc-63d81.appspot.com/o/pfp%2Fno_user.webp?alt=media&token=fd930687-e7b9-4fa6-9603-f20b73bd0a86',
           });
+          await sendEmailVerification(userInfo.user);
+          toast.success('Email verification sent! Please verify your email then login.');
           setLoading(false);
           Router.push('/login');
         })
@@ -71,7 +74,8 @@ const Page = () => {
               );
               break;
             default:
-              toast.error(error.message);
+              toast.error(error.message.replaceAll('Firebase: ', ''));
+
               break;
           }
           setLoading(false);
@@ -88,9 +92,22 @@ const Page = () => {
     <div className="w-screen shadow-lg  shadow-secondary mt-[81px] bg-image md:min-h-[calc(100vh_-_81px)] grid place-items-center">
       <div className="container-login w-full bg-white sm:rounded-xl flex pt-3 pb-8 sm:py-0 sm:my-16">
         <form className="grid grid-cols-1 gap-5 w-full p-5 sm:p-12" onSubmit={handleSubmit}>
+          <AiOutlineUserAdd className="w-12 h-12 text-primary" />
           <h1 className="text-4xl">
             <span className="text-primary">Registration</span> Form
           </h1>
+          <p>
+            Please fill out the form below to secure your spot in the contest. We can’t wait to see
+            what you’ll bring to the table!{' '}
+            <Link
+              className="text-primary font-medium border-b-2 border-transparent hover:border-primary inline"
+              href="/login"
+            >
+              Login Instead
+            </Link>{' '}
+            if you have already registered. By filling out this form you are agreeing, to our terms
+            and conditions.
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full">
             <Field
               state={regData.name}
