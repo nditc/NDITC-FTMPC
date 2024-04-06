@@ -7,7 +7,7 @@ import { usePathname, useSearchParams } from 'next/navigation';
 import { RxCross2 } from 'react-icons/rx';
 import { Suspense } from 'react';
 import { LuLogIn } from 'react-icons/lu';
-import { auth } from '@/db/firebase';
+import { auth } from '@/config/firebase';
 import { FiUser } from 'react-icons/fi';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
@@ -215,7 +215,7 @@ const Navbar = () => {
                   onClick={() => {
                     setShowOptions(false);
                   }}
-                  href="https://nditc.net/#Contact"
+                  href="/#Contact"
                   className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-secondary md:p-0"
                 >
                   Contact

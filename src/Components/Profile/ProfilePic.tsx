@@ -5,10 +5,12 @@ import Modal from '@/Components/Modal';
 import Field from '../Field';
 import { CgSpinner } from 'react-icons/cg';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
-import { auth, db, pfp } from '@/db/firebase';
+import { auth, db, pfp } from '@/config/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { doc, updateDoc } from 'firebase/firestore';
 import { LiaTimesSolid } from 'react-icons/lia';
+import { toast } from 'react-toastify';
+import fileValidator from '@/util/fileValidator';
 
 const ProfilePic = ({ imageUrl, setImage }: { imageUrl: any; setImage: (url: string) => void }) => {
   const [changeImage, setChangeImage] = useState<boolean>();
@@ -21,25 +23,40 @@ const ProfilePic = ({ imageUrl, setImage }: { imageUrl: any; setImage: (url: str
     if (user?.uid && newImage) {
       setLoading(true);
       const storeRef = ref(pfp, 'pfp/' + user.uid);
-      uploadBytes(storeRef, newImage[0]).then(async (snapshot) => {
-        const url = await getDownloadURL(storeRef);
-        await updateDoc(doc(db, 'participants', user.uid), { imageUrl: url });
-        setImage(url);
-        setLoading(false);
-        setNewImage(null);
-        setChangeImage(false);
-      });
+      uploadBytes(storeRef, newImage[0])
+        .then(async (snapshot) => {
+          const url = await getDownloadURL(storeRef);
+          await updateDoc(doc(db, 'participants', user.uid), { imageUrl: url });
+          setImage(url);
+          setLoading(false);
+          setNewImage(null);
+          setChangeImage(false);
+          toast.success('Photo Updated!');
+        })
+        .catch((error) => {
+          console.dir(error);
+
+          toast.error(error.message.replaceAll('Firebase: ', ''));
+
+          setLoading(false);
+        });
+    } else {
+      toast.error('Something Happenned');
     }
   };
   return (
     <>
       <div
+        className="rounded-full relative text-center group"
         onClick={() => {
           setChangeImage(true);
         }}
       >
+        <p className="absolute z-10 font-medium text-transparent  cursor-pointer select-none group-hover:text-white top-1/2 left-1/2 -translate-x-1/2  -translate-y-1/2">
+          Click to Change
+        </p>
         <Image
-          className="rounded-full object-cover w-[200px] h-[200px]  aspect-square shadow-md  bg-white"
+          className="rounded-full group-hover:brightness-50 transition-all cursor-pointer   min-w-[200px] max-w-[200px]  object-cover w-[200px] h-[200px]  aspect-square shadow-md  bg-white"
           src={imageUrl}
           alt="profile-img"
           width={200}
@@ -48,7 +65,7 @@ const ProfilePic = ({ imageUrl, setImage }: { imageUrl: any; setImage: (url: str
       </div>
       <Modal state={changeImage}>
         {changeImage ? (
-          <div className=" rounded-xl bg-white p-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div className="max-w-[95vw] rounded-xl bg-white p-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             <div className="flex justify-end">
               <button
                 className="text-primary text-right mb-5 font-medium border-b-2 border-transparent hover:border-primary ml-2 flex gap-2 items-center"
@@ -72,11 +89,27 @@ const ProfilePic = ({ imageUrl, setImage }: { imageUrl: any; setImage: (url: str
               />
             ) : null}
             <input
-              onChange={(e) => setNewImage(e.target.files ? e.target.files : null)}
-              className="my-5"
+              onChange={async (e) => {
+                try {
+                  await fileValidator(
+                    e.target.files || [],
+                    ['image/png', 'image/jpeg', 'image/webp'],
+                    512,
+                    1,
+                    'File must have to be a .jpg, .png or .webp file'
+                  );
+                  setNewImage(e.target.files ? e.target.files : null);
+                } catch (err) {
+                  e.target.value = '';
+
+                  toast.error(String(err));
+                }
+              }}
+              className="my-5 file:bg-primary file:text-white file:border-none file:py-2 file:px-4  file:rounded-lg file:cursor-pointer file:mr-3 file:hover:bg-secondary_light file:hover:text-primary"
               ref={FileRef}
               name="pfp"
               type={'file'}
+              accept=".png, .jpg, .jpeg, .webp"
             />
             <div className="justify-self-end w-full md:w-auto py-3 md:py-0">
               <button
@@ -91,7 +124,7 @@ const ProfilePic = ({ imageUrl, setImage }: { imageUrl: any; setImage: (url: str
                 {loading ? (
                   <CgSpinner className="w-7 h-7 animate-spin text-secondary_light" />
                 ) : (
-                  'Update Data'
+                  'Update Image'
                 )}
               </button>
             </div>

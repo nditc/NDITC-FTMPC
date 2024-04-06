@@ -24,7 +24,7 @@ const Setter = () => {
           Hats off to all the brilliant setters who craft mind-bending problems, keeping us hooked
           and our coding skills razor-sharp!
         </p>
-        <div className="flex pt-2 mt-4 md:mt-5   grid-fluid-fill-[275px] md:grid-fluid-fill-[250px] flex-wrap gap-4 md:gap-8  justify-start">
+        <div className="flex pt-2 mt-4 md:mt-5   grid-fluid-fill-[275px] flex-wrap gap-4 md:gap-8  justify-start">
           {setter.map(({ name, post, image_url, dept }, index) => (
             <div className="" key={index}>
               <Member
