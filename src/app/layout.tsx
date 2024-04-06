@@ -23,11 +23,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <NextTopLoader color={'#279367'} />
         <Suspense>
           <Navbar />
+          <div id="scrollToTop" className="w-0 h-0" />
+          {children}
+          <Footer />
+          <ToastContainer bodyClassName={'Inter'} position="top-center" />
         </Suspense>
-        <div id="scrollToTop" className="w-0 h-0" />
-        {children}
-        <Footer />
-        <ToastContainer bodyClassName={'Inter'} position="top-center" />
       </body>
     </html>
   );
