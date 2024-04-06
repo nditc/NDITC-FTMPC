@@ -31,7 +31,7 @@ const FAQ = () => {
           <div key={index}>
             <h2 className="text-xl font-extrabold Nunito">
               <button
-                onClick={() => setOpenIndex((s) => (s === 0 ? index + 1 : 0))}
+                onClick={() => setOpenIndex((s) => (s === index + 1 ? 0 : index + 1))}
                 type="button"
                 className={`flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border ${
                   index !== FAQS.length - 1 || openIndex === index + 1 ? 'border-b-0' : ''
