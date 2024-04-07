@@ -6,62 +6,37 @@ const About = () => {
     <section className="w-screen bg-no-repeat bg-cover bg-bottom  relative my-auto" id="about">
       <section className="w-screen bg-image bg-no-repeat bg-cover bg-bottom  relative my-auto">
         {' '}
-        <section className="flex flex-col container items-center my-auto">
-          <div className="flex flex-col-reverse md:flex-row gap-8 text-[#ffffffbe] text-base 2xl:text-lg Nunito pt-12 pb-8 items-center">
-            <div className="flex-1 pb-5">
-              <h1 className="text-[2.55rem] pt-5 md:text-5xl mb-5 text-white">
-                ABOUT <span className="text-secondary">FTMPC 4.0</span>
-              </h1>
-              <p className="flex-1">
-                NDITC INIT 4.0 is set to blow your mind with a lineup of thrilling events designed
-                to challenge and inspire. Whether you&apos;re into the high-energy action of Robo
-                Wars or the brain-teasing puzzles of Programming Contests, there&apos;s something
-                here for every tech enthusiast. And if sports are more your style, we&apos;ve got
-                unique twists like Spot N Go and Soccer Wheels to get your heart pumping and your
-                competitive spirit soaring. But wait, there&apos;s more! We&apos;ve pulled out all
-                the stops to make NDITC INIT 4.0 an unforgettable experience. Get ready for amazing
-                prizes that&apos;ll leave you speechless and bragging rights that&apos;ll make your
-                friends jealous. So, mark May 2–May 4, 2023, on your calendars, as NDITC INIT 4.0 is
-                set to deliver to you one of the county&apos;s top college-level technology-based
-                festivals, and it&apos;s going to be epic.
-              </p>
-            </div>
-            <div className="w-full flex-1 md:w-1/2 rounded-xl h-full shadow">
-              <Image
-                width={750}
-                height={750}
-                className="w-full object-cover  md:min-h-[410px] max-h-[50vh]  rounded-xl h-full"
+        <section className="flex flex-col container items-center pt-14 pb-12 my-auto">
+          <h1 className="text-[2.55rem] md:text-5xl text-white ">
+            ABOUT <span className="text-secondary">FTMPC 4.0</span>
+          </h1>
+          <div className="flex flex-col lg:flex-row gap-8 text-[#ffffffbe] text-base xl:text-lg Nunito mt-3  pb-2 items-stretch">
+            <div className="w-full flex-1 lg:w-1/2 h-full lg:h-auto rounded-xl shadow grid  justify-items-center place-items-stretch">
+              <img
+                className="w-full md:w-3/4 lg:w-full h-full lg:h-auto object-cover  md:mb-4  rounded-xl mt-3"
                 src="/Images/abt.jpg"
                 alt=""
-              ></Image>
+              ></img>
             </div>
-          </div>
-          <div className="flex flex-col md:flex-row gap-8 text-[#ffffffbe] text-base 2xl:text-lg Nunito pb-12 pt-8 items-center">
-            <div className="w-full flex-1 md:w-1/2 rounded-xl h-full shadow">
-              <Image
-                width={750}
-                height={750}
-                className="w-full object-cover  md:min-h-[410px] max-h-[50vh]  rounded-xl h-full"
-                src="/Images/abt.jpg"
-                alt=""
-              ></Image>
-            </div>
-            <div className="flex-1 pb-5">
-              <h1 className="text-[2.55rem] pt-5 md:text-5xl mb-5 text-white">
-                ABOUT <span className="text-secondary">FTMPC 4.0</span>
-              </h1>
+            <div className="flex-1 pb-5 mt-3">
               <p className="flex-1">
-                NDITC INIT 4.0 is set to blow your mind with a lineup of thrilling events designed
-                to challenge and inspire. Whether you&apos;re into the high-energy action of Robo
-                Wars or the brain-teasing puzzles of Programming Contests, there&apos;s something
-                here for every tech enthusiast. And if sports are more your style, we&apos;ve got
-                unique twists like Spot N Go and Soccer Wheels to get your heart pumping and your
-                competitive spirit soaring. But wait, there&apos;s more! We&apos;ve pulled out all
-                the stops to make NDITC INIT 4.0 an unforgettable experience. Get ready for amazing
-                prizes that&apos;ll leave you speechless and bragging rights that&apos;ll make your
-                friends jealous. So, mark May 2–May 4, 2023, on your calendars, as NDITC INIT 4.0 is
-                set to deliver to you one of the county&apos;s top college-level technology-based
-                festivals, and it&apos;s going to be epic.
+                Embarking on the journey of knowledge and innovation, Notre Dame Information
+                Technology Club proudly presents the fourth installment of the prestigious Father
+                Timm Memorial Programming Contest (FTMPC 4.0). Named in honour of the illustrious
+                Father Richard William Timm, a luminary figure whose legacy spans the realms of
+                academia, humanitarianism, and biodiversity exploration, this programming contest
+                stands as a testament to his enduring influence. <br></br>
+                <br></br> FTMPC 4.0 is not merely a competition but a celebration of intellect and
+                creativity, aimed at nurturing the next generation of tech-savvy minds. With a nod
+                to the timeless wisdom of Steve Jobs, we believe that coding transcends the
+                boundaries of programming languages; it instills in individuals a profound ability
+                to think critically, problem-solve, and innovate.
+                <br />
+                <br /> Open to students from diverse educational backgrounds, including schools,
+                colleges, and polytechnic institutes, this contest promises to be a transformative
+                experience. Participants will engage in the art of coding individually, employing
+                languages such as Python, C, or C++ to tackle challenges inspired by the prestigious
+                International Olympiad in Informatics (IOI) format.
               </p>
             </div>
           </div>

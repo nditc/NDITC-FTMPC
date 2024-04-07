@@ -2,25 +2,48 @@ import React from 'react';
 
 const Rules = () => {
   return (
-    <section id="rules" className="w-screen h-fit pt-16 pb-16 object-cover  text-center">
-      <div className="container">
+    <section id="rules" className="w-screen h-fit pt-16 pb-16 object-cover  text-center md:text-lg">
+      <div className="container leading-7">
         <h1 className="mx-auto mb-5 md:mb-8 ">
           <span className="text-4xl md:text-5xl text-center">RULES & </span>{' '}
           <br className="inline md:hidden" />
           <span className="text-primary text-4xl md:text-5xl text-center">ELEGIBILITY </span>{' '}
         </h1>
-        <p className="text-left">
-          Participants eligible for the competition include all current students enrolled in
-          schools, colleges, and corresponding institutions, including those from the HSC batch of
-          2024. Individual participation is mandatory, and submissions must adhere to provided
-          guidelines, ensuring originality and compliance with copyright laws. Fair play and
-          respectful conduct are expected throughout the competition, with any form of cheating or
-          inappropriate behavior resulting in disqualification. Participants must also comply with
-          all applicable laws and regulations and respect judges&apos; decisions, while organizers
-          reserve the right to disqualify any participant violating rules or failing to adhere to
-          guidelines. Changes to rules may occur at organizers&apos;discretion, communicated through
-          official channels, and participants&apos; agreement to abide by these rules and additional
-          guidelines is implied upon participation.
+        <ul className="text-left flex flex-col gap-3 list-[circle]  marker:text-2xl pl-8 marker:text-primary">
+          <li>
+            {' '}
+            All students from schools and colleges (including HSC batch-2023) and corresponding
+            institutions such as polytechnic institutes (4th year and below) are eligible to
+            participate. Participants have to participate individually.{' '}
+          </li>
+          <li> The contest will follow the IOI format. </li>
+          <li> Participants can use Python, C or C++ programming language. </li>
+          <li> The preliminary contest will last for 3 hours. </li>
+          <li>
+            {' '}
+            Participants selected for the Offline Contest must bring their laptops with them.{' '}
+          </li>
+          <li> Participants have to participate in the contest using the custom handle. </li>
+          <li> Custom handles will be given to participants via email. </li>
+          <li>
+            Contest will be hosted on{' '}
+            <a className="text-primary " href="https://toph.co/">
+              https://toph.co/
+            </a>{' '}
+          </li>
+          <li>
+            {' '}
+            Before one day of the Preliminary contest, Toph.co login credentials will be sent to
+            registered participants.
+          </li>
+        </ul>
+        <p className="mt-8 text-left bg-emerald-50 rounded-xl p-6">
+          <strong className="text-primary">⚠️ Plagiarism Issues:</strong> Since Preliminary will be
+          an online contest, third-party codes that were written or available online before the
+          start of the contest can be used, but it may lead to confusion if more than one
+          participant uses the same template. In that case, the decision of the judges will be
+          considered. Apart from that, if a person is caught cheating by providing/taking code from
+          others, then they will be DISQUALIFIED from the contest immediately.
         </p>
       </div>
     </section>

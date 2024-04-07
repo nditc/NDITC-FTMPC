@@ -5,7 +5,12 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { auth, db } from '@/config/firebase';
 
-import { deleteUser, sendEmailVerification, signInWithEmailAndPassword } from 'firebase/auth';
+import {
+  deleteUser,
+  reauthenticateWithPopup,
+  sendEmailVerification,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
 
 import { toast } from 'react-toastify';
 import { CgArrowLeft, CgArrowRight, CgSpinner } from 'react-icons/cg';
@@ -16,6 +21,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
 const Page = () => {
   const [loading, setLoading] = useState<boolean>(false);
+  const [loading2, setLoading2] = useState<boolean>(false);
   const [user] = useAuthState(auth);
 
   const Router = useRouter();
@@ -35,10 +41,31 @@ const Page = () => {
     }
     setLoading(false);
   };
+  const deleteAccount = async (event: any) => {
+    event.preventDefault();
+    setLoading2(true);
+    try {
+      if (user) {
+        await deleteUser(user);
+        toast.info(`Please register again.`);
+        Router.push('/register');
+      }
+    } catch (err: any) {
+      console.error(err);
+      if (err?.code === 'auth/requires-recent-login') {
+        toast.error(`Login expired. Please register/login again.`);
+        auth.signOut();
+        Router.push('/register');
+      } else {
+        setLoading2(false);
+        toast.error('Aww! Snap!');
+      }
+    }
+  };
   useEffect(() => {
     if (user && user.emailVerified) {
       Router.push('/profile');
-    } else if (!user) {
+    } else if (!user && !loading2) {
       Router.push('/login');
     }
     const x = setInterval(() => {
@@ -48,7 +75,7 @@ const Page = () => {
     return () => {
       clearInterval(x);
     };
-  }, [user, Router]);
+  }, [user, Router, loading2]);
   return (
     <div className="w-screen shadow-lg  shadow-secondary mt-[81px] bg-image md:min-h-[calc(100vh_-_81px)] grid place-items-center">
       <div className="container-login w-full bg-white sm:rounded-xl flex pt-3 pb-8 sm:py-0 sm:my-16 min-h-[calc(100vh_-_81px)] md:min-h-[70vh]">
@@ -57,7 +84,8 @@ const Page = () => {
             ACCOUNT <span className="text-primary">VERIFICATION</span>
           </h1>
           <p className="text-base">
-            Please verify your account. An email has been sent to {user?.email}
+            Please verify your account. An email has been sent to {user?.email}. Don&apos;t forget
+            to check you spam.
           </p>
           <div className="flex flex-col gap-5 w-full">
             <div className="w-full h-full">
@@ -87,11 +115,27 @@ const Page = () => {
                 )}
               </button>
             </div>
+            <div className=" w-full h-full">
+              <button
+                type="button"
+                style={{
+                  pointerEvents: loading ? 'none' : 'auto',
+                }}
+                className="bg-primary rounded-xl  text-white text-lg py-2 px-8 transition-all w-full hover:bg-secondary_light hover:text-primary"
+                onClick={deleteAccount}
+              >
+                {loading2 ? (
+                  <CgSpinner className="w-7 h-7 animate-spin text-secondary_light mx-auto" />
+                ) : (
+                  'Incorrect Address? Register Again'
+                )}
+              </button>
+            </div>
           </div>
         </div>
         <Image
           alt="login"
-          className={'hidden lg:block w-1/2 rounded-xl m-5 order-1'}
+          className={'hidden object-cover lg:block w-1/2 rounded-xl m-5 order-1'}
           src="/Images/reg_banner.png"
           width={512}
           height={512}
