@@ -21,9 +21,10 @@ const Hero = () => {
           alt={'Image'}
           className="relative w-full max-w-[95%] md:max-w-[450px] mt-3 mb-2"
         />
-        <p className="mt-3 text-base 2xl:text-[1.375rem]   2xl:leading-8  break-words w-[85vw] md:w-fit text-center md:text-left Nunito">
-          Get ready to shake off the ordinary and dive into an exciting new world with INIT 4.0!
-          Brought to you by the Notre Dame Information Technology Club.
+        <p className="mt-3 text-base 2xl:text-[1.375rem]  2xl:leading-8  break-words w-[85vw] md:w-fit text-center md:text-left Nunito">
+          Dive headfirst into the code arena! NDITC&apos;s FTMPC 4.0 is your chance to clash with
+          fellow tech minds. This contest throws down coding challenges that will transform you into
+          a programming warrior.
         </p>
 
         <a

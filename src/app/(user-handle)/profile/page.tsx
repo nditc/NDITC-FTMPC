@@ -29,6 +29,22 @@ const Page = () => {
   const Route = useRouter();
   useEffect(() => {
     auth.currentUser?.reload();
+    if (userAuth) {
+      fetch('/api/admin', {
+        method: 'POST',
+        body: JSON.stringify({ id: userAuth.email }),
+      })
+        .then((r) => r.json())
+        .then((resp) => {
+          console.log(resp);
+          if (resp.auth) {
+            Route.push('/admin');
+          }
+        })
+        .catch((err) => {
+          toast.error('Something went wrong');
+        });
+    }
     if (userAuth && userAuth.emailVerified) {
       const docRef = doc(db, 'participants', userAuth.uid);
 
@@ -50,13 +66,17 @@ const Page = () => {
         });
     } else if (userAuth && !userAuth?.emailVerified) {
       setUserData(null);
+      setDLoading(false);
       Route.push('/verify');
     } else if (!loading) {
       setUserData(null);
+      setDLoading(false);
       Route.push('/login');
     }
   }, [Route, userAuth, loading]);
   const logOut = () => {
+    setDLoading(true);
+
     auth.signOut();
   };
 
@@ -119,11 +139,7 @@ const Page = () => {
           <CgSpinner className="mx-auto w-16 h-16 animate-spin text-primary" />
         </div>
       ) : (
-        <Error
-          statusCode={500}
-          msg="Something wrong! Maybe Network Error."
-          action={() => Route.refresh()}
-        />
+        <div className="grid place-items-center w-full h-screen"></div>
       )}
     </>
   );

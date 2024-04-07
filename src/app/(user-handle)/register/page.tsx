@@ -47,11 +47,8 @@ const Page = () => {
         .then(async (userInfo) => {
           //add userInfo in Collections
           const uid = userInfo.user.uid;
-          const res = await fetch('http://worldtimeapi.org/api/timezone/Asia/Dhaka');
-          const date = await res.json();
           await setDoc(doc(db, 'participants', uid), {
             ...regData,
-            createdAt: new Date(date.unixtime * 1000).toString(),
             timestamp: serverTimestamp(),
             imageUrl:
               'https://firebasestorage.googleapis.com/v0/b/ftmpc-63d81.appspot.com/o/pfp%2Fno_user.webp?alt=media&token=fd930687-e7b9-4fa6-9603-f20b73bd0a86',

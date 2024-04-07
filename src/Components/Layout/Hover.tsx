@@ -45,9 +45,9 @@ const Hover = ({ text, showOptions, windowWidth, setShowOption }: Props) => {
           className={
             'block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:p-0' +
             ' ' +
-            (Route === '/activities' ? 'md:text-blue-500' : '') +
+            (Route === '/activities' ? 'md:text-primary' : '') +
             ' ' +
-            (hover ? 'text-blue-500' : 'text-gray-900 ')
+            (hover ? 'text-primary' : 'text-gray-900 ')
           }
           type="button"
         >
@@ -64,12 +64,12 @@ const Hover = ({ text, showOptions, windowWidth, setShowOption }: Props) => {
           data-dropdown-toggle="dropdownHover"
           data-dropdown-trigger="hover"
           className={
-            'flex items-center gap-1 py-2 justify-between px-3 text-gray-900 w-full text-left rounded  md:hover:bg-transparent md:hover:text-blue-500 md:p-0' +
+            'flex items-center gap-1 py-2 justify-between px-3 text-gray-900 w-full text-left rounded  md:hover:bg-transparent md:hover:text-primary md:p-0' +
             ' ' +
             (open && !(Route === '/activities') ? 'bg-gray-200 hover:bg-gray-300' : '') +
             ' ' +
             (Route === '/activities'
-              ? 'bg-blue-600 text-white hover:bg-blue-700  md:text-blue-500'
+              ? 'bg-blue-600 text-white hover:bg-blue-700  md:text-primary'
               : ' md:text-black hover:bg-gray-200') +
             ' '
           }
@@ -102,7 +102,7 @@ const Hover = ({ text, showOptions, windowWidth, setShowOption }: Props) => {
             <Link
               onClick={setShowOption}
               href="/activities?type=event"
-              className="block px-4 py-2 hover:bg-gray-200  md:hover:bg-gray-100   md:hover:text-blue-500"
+              className="block px-4 py-2 hover:bg-gray-200  md:hover:bg-gray-100   md:hover:text-primary"
             >
               Events
             </Link>
@@ -111,7 +111,7 @@ const Hover = ({ text, showOptions, windowWidth, setShowOption }: Props) => {
             <Link
               onClick={setShowOption}
               href="/activities?type=workshop&scroll=true"
-              className="block px-4 py-2 hover:bg-gray-200  md:hover:bg-gray-100   md:hover:text-blue-500"
+              className="block px-4 py-2 hover:bg-gray-200  md:hover:bg-gray-100   md:hover:text-primary"
             >
               Workshop
             </Link>
@@ -121,7 +121,7 @@ const Hover = ({ text, showOptions, windowWidth, setShowOption }: Props) => {
             <Link
               onClick={setShowOption}
               href="/activities?type=project&scroll=true"
-              className="block px-4 py-2 hover:bg-gray-200  md:hover:bg-gray-100   md:hover:text-blue-500"
+              className="block px-4 py-2 hover:bg-gray-200  md:hover:bg-gray-100   md:hover:text-primary"
             >
               Projects
             </Link>
@@ -130,7 +130,7 @@ const Hover = ({ text, showOptions, windowWidth, setShowOption }: Props) => {
             <Link
               onClick={setShowOption}
               href="/activities?type=publication&scroll=true"
-              className="block px-4 py-2 md:hover:bg-gray-100 hover:bg-gray-200 md:hover:text-blue-500"
+              className="block px-4 py-2 md:hover:bg-gray-100 hover:bg-gray-200 md:hover:text-primary"
             >
               Publication
             </Link>

@@ -1,10 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import CurrentYear from '../CurrentYear';
+import { FaFacebook } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#1F1F1F] text-base relative">
+    <footer className="bg-[#1F1F1F] text-base relative overflow-x-hidden max-w-screen">
       <CurrentYear />
       <div className="mx-auto flex-col md:flex-row w-full max-w-screen-xl p-4 py-6 pb-12 md:pb-8 lg:py-8 flex justify-evenly  gap-10">
         <div className="flex gap-3 md:gap-24 justify-between order-3 md:order-1">
@@ -74,6 +75,12 @@ const Footer = () => {
             >
               App
             </a>
+            <Link
+              href="/developer"
+              className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline cursor-pointer"
+            >
+              Developers
+            </Link>
           </div>
         </div>
         <div className="md:flex hidden flex-col items-center gap-3 order-2">
@@ -96,7 +103,7 @@ const Footer = () => {
           </div>
           <div className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline flex gap-1 items-center">
             <svg
-              className="w-5 h-5 text-zinc-800 dark:text-white mr-2"
+              className="w-5 h-5 text-white mr-2"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -114,8 +121,15 @@ const Footer = () => {
             <p>nditc.official@gmail.com</p>
           </div>
           <div className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline flex gap-1 items-center">
+            <FaFacebook className="w-5 h-5 text-white mr-2" />
+
+            <a href="https://www.facebook.com/nditc.official">
+              https://www.facebook.com/nditc.official
+            </a>
+          </div>
+          <div className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline flex gap-1 items-center">
             <svg
-              className="w-5 h-5 text-zinc-800 dark:text-white mr-2"
+              className="w-5 h-5 text-white mr-2"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -133,7 +147,7 @@ const Footer = () => {
           </div>
           <div className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline flex gap-1 items-center">
             <svg
-              className="w-5 h-5 text-zinc-800 dark:text-white mr-2"
+              className="w-5 h-5 text-white mr-2"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
