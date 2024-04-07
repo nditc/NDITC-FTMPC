@@ -1,4 +1,4 @@
-import { regDataType } from '@/db/registerData';
+import { regDataType } from '@/config/registerData';
 
 // Pass the 'language' parameter to specify the language (optional).
 // Defaults to 'en' if no valid language code is provided.

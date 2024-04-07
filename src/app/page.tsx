@@ -6,6 +6,8 @@ import Setter from '@/Components/Home/Setter';
 import Hero from '@/Components/Home/Hero';
 import About from '@/Components/Home/About';
 import Rules from '@/Components/Home/Rules';
+import Contact from '@/Components/Contact';
+import FAQ from '@/Components/FAQ';
 
 const Home = () => {
   return (
@@ -15,6 +17,8 @@ const Home = () => {
         <About />
         <Rules />
         <Setter />
+        <FAQ />
+        <Contact />
       </main>
     </>
   );

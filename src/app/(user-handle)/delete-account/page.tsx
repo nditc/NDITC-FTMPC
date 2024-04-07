@@ -1,9 +1,9 @@
 'use client';
 
 import Field from '@/Components/Field';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { auth, db } from '@/db/firebase';
+import { auth, db, pfp } from '@/config/firebase';
 
 import { deleteUser, signInWithEmailAndPassword } from 'firebase/auth';
 
@@ -12,38 +12,47 @@ import { CgArrowLeft, CgSpinner } from 'react-icons/cg';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { doc, DocumentReference, deleteDoc } from 'firebase/firestore';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { deleteObject, ref } from 'firebase/storage';
 
 const Page = () => {
   const [password, setPassword] = useState<string>('');
-  const [email, setEmail] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
+  const [user] = useAuthState(auth);
   const Router = useRouter();
   const handleSubmit = async (event: any) => {
     event.preventDefault();
     setLoading(true);
-    signInWithEmailAndPassword(auth, email, password)
-      .then(async (UserCred) => {
-        const UserInfo = UserCred.user;
-        await deleteDoc(doc(db, 'participants', UserInfo.uid));
-        await deleteUser(UserInfo);
-        toast.success(`User Deleted!.`);
-        setLoading(false);
-        Router.push('/');
-      })
-      .catch((error) => {
-        console.dir(error);
-        switch (error.code) {
-          case 'auth/invalid-credential':
-            toast.error(`Invalid email or password.`);
-            break;
-          default:
-            console.error(error.message);
-            toast.error(error.message.replaceAll('Firebase: ', ''));
-            break;
-        }
-        setLoading(false);
-      });
+    if (user && user.email) {
+      signInWithEmailAndPassword(auth, user.email, password)
+        .then(async (UserCred) => {
+          const UserInfo = UserCred.user;
+          await deleteDoc(doc(db, 'participants', UserInfo.uid));
+          await deleteObject(ref(pfp, 'pfp/' + UserInfo.uid));
+          await deleteUser(UserInfo);
+          toast.success(`User Deleted!.`);
+          setLoading(false);
+          Router.push('/');
+        })
+        .catch((error) => {
+          console.dir(error);
+          switch (error.code) {
+            case 'auth/invalid-credential':
+              toast.error(`Invalid password.`);
+              break;
+            default:
+              console.error(error.message);
+              toast.error(error.message.replaceAll('Firebase: ', ''));
+              break;
+          }
+          setLoading(false);
+        });
+    } else {
+      toast.error(`User not logged in.`);
+      setLoading(false);
+    }
   };
+
   return (
     <div className="w-screen shadow-lg  shadow-secondary mt-[81px] bg-image md:min-h-[calc(100vh_-_81px)] grid place-items-center">
       <div className="container-login w-full bg-white sm:rounded-xl flex pt-3 pb-8 sm:py-0 sm:my-16 min-h-[calc(100vh_-_81px)] md:min-h-[70vh]">
@@ -53,6 +62,7 @@ const Page = () => {
         >
           <div className="flex justify-between text-sm md:text-base">
             <button
+              type="button"
               className="text-primary font-medium border-b-2 border-transparent hover:border-primary ml-2 flex gap-2 items-center"
               onClick={() => Router.back()}
             >
@@ -64,13 +74,6 @@ const Page = () => {
           </h1>
           <p className="text-base">If your delete your account then you have to register again.</p>
           <div className="flex flex-col gap-5 w-full">
-            <Field
-              state={email}
-              setValue={(name, data) => setEmail(String(data))}
-              name="email"
-              label="E-mail"
-              type="email"
-            />
             <Field
               state={password}
               setValue={(name, data) => setPassword(String(data))}
@@ -97,8 +100,8 @@ const Page = () => {
         </form>
         <Image
           alt="login"
-          className={'hidden lg:block w-1/2 rounded-xl m-5'}
-          src="/Images/abt_bg.png"
+          className={'hidden lg:block w-1/2 object-cover rounded-xl m-5'}
+          src="/Images/reg_banner.png"
           width={512}
           height={512}
         />

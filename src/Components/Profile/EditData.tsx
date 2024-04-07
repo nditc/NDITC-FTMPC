@@ -3,11 +3,11 @@ import { FaRegEdit, FaRegTrashAlt, FaTimes } from 'react-icons/fa';
 import Field from '@/Components/Field';
 import Select from '@/Components/Select';
 import { FiUser } from 'react-icons/fi';
-import { classes, regDataType } from '@/db/registerData';
+import { classes, regDataType } from '@/config/registerData';
 import { LiaTimesSolid } from 'react-icons/lia';
 import { CgSpinner } from 'react-icons/cg';
 import { doc, updateDoc } from 'firebase/firestore';
-import { auth, db } from '@/db/firebase';
+import { auth, db } from '@/config/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 
@@ -45,7 +45,7 @@ const EditData = ({ userData, setUserData }: props) => {
     setLoading(false);
   };
   return (
-    <div className="container-login w-full bg-white sm:rounded-xl flex pt-3 pb-8 mb-4 sm:py-0 sm:mt-8">
+    <div className="container w-full bg-white rounded-xl flex pt-3 pb-8 mb-4 sm:py-0 sm:mt-8">
       {editUserData ? (
         <form className="grid grid-cols-1 gap-5 w-full p-5 sm:p-12" onSubmit={submitHandler}>
           <div className="flex justify-between">

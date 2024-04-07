@@ -15,6 +15,7 @@ const regDataInit = {
   verified: false,
   tophHandle: '',
   tophPassword: '',
+  selected: false,
 };
 
 type regDataType = typeof regDataInit;

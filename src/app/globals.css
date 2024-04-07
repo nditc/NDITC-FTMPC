@@ -44,12 +44,6 @@ p {
 /* *::-webkit-scrollbar {
   display: none;
 } */
-body::-webkit-scrollbar,
-* {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-  box-sizing: border-box;
-}
 
 .container {
   @apply max-w-[90vw] xl:max-w-[85vw] 2xl:max-w-[75vw] mx-auto;

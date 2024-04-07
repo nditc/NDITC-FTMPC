@@ -1,5 +1,5 @@
 import React, { HTMLInputTypeAttribute } from 'react';
-import { regDataInit, regDataType } from '@/db/registerData';
+import { regDataInit, regDataType } from '@/config/registerData';
 
 type props = {
   name: string;

@@ -2,10 +2,10 @@
 
 import Field from '@/Components/Field';
 import React, { useReducer, useState } from 'react';
-import { regDataInit, regDataType, classes } from '@/db/registerData';
+import { regDataInit, regDataType, classes } from '@/config/registerData';
 import Select from '@/Components/Select';
-import { auth, db } from '@/db/firebase';
-import { doc, setDoc } from 'firebase/firestore';
+import { auth, db } from '@/config/firebase';
+import { doc, serverTimestamp, setDoc } from 'firebase/firestore';
 
 import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
 
@@ -47,15 +47,19 @@ const Page = () => {
         .then(async (userInfo) => {
           //add userInfo in Collections
           const uid = userInfo.user.uid;
+          const res = await fetch('http://worldtimeapi.org/api/timezone/Asia/Dhaka');
+          const date = await res.json();
           await setDoc(doc(db, 'participants', uid), {
             ...regData,
+            createdAt: new Date(date.unixtime * 1000).toString(),
+            timestamp: serverTimestamp(),
             imageUrl:
               'https://firebasestorage.googleapis.com/v0/b/ftmpc-63d81.appspot.com/o/pfp%2Fno_user.webp?alt=media&token=fd930687-e7b9-4fa6-9603-f20b73bd0a86',
           });
           await sendEmailVerification(userInfo.user);
-          toast.success('Email verification sent! Please verify your email then login.');
+          toast.success('Email verification link sent! Please verify your email please.');
           setLoading(false);
-          Router.push('/login');
+          Router.push('/profile');
         })
         .catch((error) => {
           switch (error.code) {
