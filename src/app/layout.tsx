@@ -16,7 +16,12 @@ export const metadata: Metadata = {
   icons: { icon: "favicon.ico" },
   openGraph: {
     images: [
-      { url: "/Images/FTMPC.png", width: 512, height: 451, alt: "FTMPC Image" },
+      {
+        url: "/opengraph-image.png",
+        width: 512,
+        height: 451,
+        alt: "FTMPC Image",
+      },
     ],
   },
 };
