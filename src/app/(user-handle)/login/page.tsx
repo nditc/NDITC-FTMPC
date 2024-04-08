@@ -1,24 +1,24 @@
-"use client";
+'use client';
 
-import Field from "@/Components/Field";
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
-import { auth, db } from "@/config/firebase";
+import Field from '@/Components/Field';
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { auth, db } from '@/config/firebase';
 
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
-import { toast } from "react-toastify";
-import { CgLogIn, CgSpinner } from "react-icons/cg";
-import { useRouter } from "next/navigation";
-import Image from "next/image";
-import { FirebaseError } from "firebase/app";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { update } from "firebase/database";
-import { doc, updateDoc } from "firebase/firestore";
+import { toast } from 'react-toastify';
+import { CgLogIn, CgSpinner } from 'react-icons/cg';
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+import { FirebaseError } from 'firebase/app';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { update } from 'firebase/database';
+import { doc, updateDoc } from 'firebase/firestore';
 
 const Page = () => {
-  const [password, setPassword] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
   const [authLoading, setAuthLoading] = useState<boolean>(false);
   const [userAuth, uloading, error] = useAuthState(auth);
@@ -29,24 +29,22 @@ const Page = () => {
     setLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then(async (UserCred) => {
-        toast.success("User logged in!");
+        toast.success('User logged in!');
         setLoading(false);
-        Router.push("/profile");
+        Router.push('/profile');
       })
       .catch((error: FirebaseError) => {
         console.dir(error);
         switch (error.code) {
-          case "auth/invalid-credential":
+          case 'auth/invalid-credential':
             toast.error(`Invalid email or password.`);
             break;
-          case "auth/too-many-requests":
-            toast.error(
-              `Too many login attempts. Please reset your password to login again.`
-            );
+          case 'auth/too-many-requests':
+            toast.error(`Too many login attempts. Please reset your password to login again.`);
             break;
           default:
             console.error(error.message);
-            toast.error(error.message.replaceAll("Firebase: ", ""));
+            toast.error(error.message.replaceAll('Firebase: ', ''));
             break;
         }
         setLoading(false);
@@ -56,7 +54,7 @@ const Page = () => {
     console.log(auth);
     setAuthLoading(true);
     if (userAuth) {
-      Router.push("/profile");
+      Router.push('/profile');
     }
     setAuthLoading(false);
   }, [Router, userAuth]);
@@ -91,7 +89,7 @@ const Page = () => {
                   name="Password"
                   label="Password"
                   type="password"
-                />{" "}
+                />{' '}
               </div>
               <div className="flex justify-between text-sm md:text-base">
                 <Link
@@ -104,20 +102,20 @@ const Page = () => {
               <div className="justify-self-end w-full md:w-auto flex flex-col items-center gap-3">
                 <button
                   style={{
-                    pointerEvents: loading ? "none" : "auto",
+                    pointerEvents: loading ? 'none' : 'auto',
                   }}
                   className="bg-primary rounded-xl text-white text-lg py-2 px-8 transition-all w-full hover:bg-secondary_light hover:text-primary"
                   type="submit"
                 >
                   {loading ? (
-                    <CgSpinner className="w-7 h-7 animate-spin text-secondary_light mx-auto" />
+                    <CgSpinner className="w-7 h-7 animate-spin text-white mx-auto" />
                   ) : (
-                    "Login"
+                    'Login'
                   )}
                 </button>
 
                 <div className="font-medium text-lg">
-                  Don't have an account?{" "}
+                  Don&apos;t have an account?{' '}
                   <Link
                     className="text-primary border-b-2 border-transparent hover:border-primary mr-2"
                     href="/register"
@@ -131,7 +129,7 @@ const Page = () => {
         </form>
         <Image
           alt="login"
-          className={"hidden lg:block w-1/2 rounded-xl object-cover m-5"}
+          className={'hidden lg:block w-1/2 rounded-xl object-cover m-5'}
           src="/Images/reg_banner.png"
           width={512}
           height={512}

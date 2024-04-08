@@ -10,10 +10,11 @@ const About = () => {
           <h1 className="text-[2.55rem] md:text-5xl text-white ">
             ABOUT <span className="text-secondary">FTMPC 4.0</span>
           </h1>
-          <div className="flex flex-col lg:flex-row gap-8 text-[#ffffffbe] text-base xl:text-lg Nunito mt-3  pb-2 items-stretch">
-            <div className="w-full flex-1 lg:w-1/2 h-full lg:h-auto rounded-xl shadow grid  justify-items-center place-items-stretch">
+
+          <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 text-[#ffffffbe] text-base xl:text-lg Nunito mt-3  pb-2 items-stretch">
+            <div className="w-full flex-1 lg:w-1/2 h-[350px] lg:h-auto rounded-xl shadow grid  justify-items-center place-items-stretch">
               <img
-                className="w-full md:w-3/4 lg:w-full h-full lg:h-auto object-cover  md:mb-4  rounded-xl mt-3"
+                className="w-full md:w-3/4 lg:w-full h-[350px] lg:h-auto object-cover  md:mb-4  rounded-xl mt-3"
                 src="/Images/abt.jpg"
                 alt=""
               ></img>

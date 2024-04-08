@@ -230,7 +230,7 @@ const Announcements = () => {
                 className="hover:bg-primary_dark mt-5  justify-self-end  hover:text-white  text-sm flex-1 justify-center  transition-colors px-5 py-2 inline-flex focus:ring-2 focus:ring-secondary bg-primary text-white items-center gap-2 rounded-lg leading-[1.15] shadow-sm"
               >
                 {modalLoading ? (
-                  <CgSpinner className="w-7 h-7 animate-spin text-secondary_light mx-auto" />
+                  <CgSpinner className="w-7 h-7 animate-spin text-white mx-auto" />
                 ) : editState !== false ? (
                   <>
                     <FaRegEdit className="w-6 h-6" />

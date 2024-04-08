@@ -109,7 +109,7 @@ const Page = () => {
                 onClick={handleSubmit}
               >
                 {loading ? (
-                  <CgSpinner className="w-7 h-7 animate-spin text-secondary_light mx-auto" />
+                  <CgSpinner className="w-7 h-7 animate-spin text-white mx-auto" />
                 ) : (
                   'Re-send Verification Link'
                 )}
@@ -125,7 +125,7 @@ const Page = () => {
                 onClick={deleteAccount}
               >
                 {loading2 ? (
-                  <CgSpinner className="w-7 h-7 animate-spin text-secondary_light mx-auto" />
+                  <CgSpinner className="w-7 h-7 animate-spin text-white mx-auto" />
                 ) : (
                   'Incorrect Address? Register Again'
                 )}
