@@ -11,6 +11,10 @@ const Home = () => {
   return (
     <>
       <main className="flex container mx-auto flex-col items-center justify-center">
+        <meta property="og:image" content="<generated>" />
+        <meta property="og:image:type" content="<generated>" />
+        <meta property="og:image:width" content="<generated>" />
+        <meta property="og:image:height" content="<generated>" />
         <Hero />
         <About />
         <Rules />
