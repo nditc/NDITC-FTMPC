@@ -116,7 +116,7 @@ const Page = () => {
                   type="submit"
                 >
                   {loading ? (
-                    <CgSpinner className="w-7 h-7 animate-spin text-secondary_light mx-auto" />
+                    <CgSpinner className="w-7 h-7 animate-spin text-white mx-auto" />
                   ) : (
                     'Login'
                   )}

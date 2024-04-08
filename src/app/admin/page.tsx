@@ -152,7 +152,7 @@ const Page = () => {
               >
                 {' '}
                 {loading[0] ? (
-                  <CgSpinner className="w-7 h-7 animate-spin text-secondary_light mx-auto" />
+                  <CgSpinner className="w-7 h-7 animate-spin text-white mx-auto" />
                 ) : (
                   'All User Data'
                 )}
@@ -163,7 +163,7 @@ const Page = () => {
                 onClick={getSelectedDocs}
               >
                 {loading[1] ? (
-                  <CgSpinner className="w-7 h-7 animate-spin text-secondary_light mx-auto" />
+                  <CgSpinner className="w-7 h-7 animate-spin text-white mx-auto" />
                 ) : (
                   'All Selected User Data'
                 )}

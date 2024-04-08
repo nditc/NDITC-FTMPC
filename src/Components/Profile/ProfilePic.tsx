@@ -122,7 +122,7 @@ const ProfilePic = ({ imageUrl, setImage }: { imageUrl: any; setImage: (url: str
                 onClick={changePfp}
               >
                 {loading ? (
-                  <CgSpinner className="w-7 h-7 animate-spin text-secondary_light" />
+                  <CgSpinner className="w-7 h-7 animate-spin text-white" />
                 ) : (
                   'Update Image'
                 )}

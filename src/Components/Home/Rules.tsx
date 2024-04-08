@@ -37,7 +37,7 @@ const Rules = () => {
             registered participants.
           </li>
         </ul>
-        <p className="mt-8 text-left bg-emerald-50 rounded-xl p-6">
+        <p className="mt-8 text-left bg-green-50 rounded-xl p-6">
           <strong className="text-primary">⚠️ Plagiarism Issues:</strong> Since Preliminary will be
           an online contest, third-party codes that were written or available online before the
           start of the contest can be used, but it may lead to confusion if more than one

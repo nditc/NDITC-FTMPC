@@ -168,7 +168,7 @@ const EditData = ({ userData, setUserData }: props) => {
                 type="submit"
               >
                 {loading ? (
-                  <CgSpinner className="w-7 h-7 animate-spin text-secondary_light" />
+                  <CgSpinner className="w-7 h-7 animate-spin text-white" />
                 ) : (
                   'Update Data'
                 )}
