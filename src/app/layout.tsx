@@ -17,7 +17,17 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: "/Images/opengraph-image.png",
+        url: "/Images/FTMPC.png",
+        width: 512,
+        height: 451,
+        alt: "FTMPC Image",
+      },
+    ],
+  },
+  twitter: {
+    images: [
+      {
+        url: "/Images/FTMPC.png",
         width: 512,
         height: 451,
         alt: "FTMPC Image",
