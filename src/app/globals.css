@@ -36,6 +36,7 @@ body {
 .shadow-solid {
   @apply shadow-[4px_4px_#157550] md:shadow-none focus:shadow-[2px_2px_#176346] md:focus:shadow-none;
 }
+
 p,
 div,
 ul,
