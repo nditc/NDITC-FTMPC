@@ -11,7 +11,6 @@ const Home = () => {
   return (
     <>
       <main className="flex container mx-auto flex-col items-center justify-center">
-        <meta property="og:image" content="opengraph-image.png" />
         <Hero />
         <About />
         <Rules />
