@@ -1,13 +1,11 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import Setter from '@/Components/Home/Setter';
-import Hero from '@/Components/Home/Hero';
-import About from '@/Components/Home/About';
-import Rules from '@/Components/Home/Rules';
-import Contact from '@/Components/Contact';
-import FAQ from '@/Components/FAQ';
+
+import Setter from "@/Components/Home/Setter";
+import Hero from "@/Components/Home/Hero";
+import About from "@/Components/Home/About";
+import Rules from "@/Components/Home/Rules";
+import Contact from "@/Components/Contact";
+import FAQ from "@/Components/FAQ";
 
 const Home = () => {
   return (
