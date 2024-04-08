@@ -14,16 +14,6 @@ export const metadata: Metadata = {
   title: "NDITC FTMPC",
   description: "Prove Your Coding Skills",
   icons: { icon: "favicon.ico" },
-  openGraph: {
-    images: [
-      {
-        url: "/opengraph-image.png",
-        width: 512,
-        height: 451,
-        alt: "FTMPC Image",
-      },
-    ],
-  },
 };
 
 export default function RootLayout({
