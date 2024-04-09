@@ -6,6 +6,7 @@ import About from "@/Components/Home/About";
 import Rules from "@/Components/Home/Rules";
 import Contact from "@/Components/Contact";
 import FAQ from "@/Components/FAQ";
+import DeveloperLink from "@/Components/DeveloperLink";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
         <Setter />
         <FAQ />
         <Contact />
+        <DeveloperLink />
       </main>
     </>
   );
