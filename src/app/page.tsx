@@ -15,7 +15,7 @@ const Home = () => {
         <Hero />
         <About />
         <Rules />
-        <Setter />
+
         <FAQ />
         <Contact />
         <DeveloperLink />
