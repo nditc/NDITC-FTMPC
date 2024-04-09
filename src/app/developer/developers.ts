@@ -16,54 +16,54 @@ type devData = {
 };
 
 const x: devData = {
-  'FULL-STACK WEB DEVELOPERS': [
+  "THE WEB DEVELOPERS": [
     {
-      name: 'HRM Rafsan Amin',
-      image_url: '/Images/Developers/hrm_rafsan.jpg',
-      modal_image_url: '/Images/Developers/tr-hrm_rafsan.png',
+      name: "HRM Rafsan Amin",
+      image_url: "/Images/Developers/hrm_rafsan.jpg",
+      modal_image_url: "/Images/Developers/tr-hrm_rafsan.png",
       profile_url: [
         {
-          platform: 'facebook',
-          url: 'https://www.facebook.com/profile.php?id=100082305411559',
+          platform: "facebook",
+          url: "https://www.facebook.com/profile.php?id=100082305411559",
         },
         {
-          platform: 'github',
-          url: 'https://github.com/RafsanAmin',
+          platform: "github",
+          url: "https://github.com/RafsanAmin",
         },
         {
-          platform: 'web',
-          url: 'https://rafsanamin.epizy.com',
+          platform: "web",
+          url: "https://rafsanamin.epizy.com",
         },
       ],
-      post: 'Member',
+      post: "Member",
       dept: "Batch '25",
       group: 5,
       roll: 12505033,
-      email: 'rafsanamin2020@gmail.com',
+      email: "rafsanamin2020@gmail.com",
     },
     {
-      name: 'Wasef Rahman Swapnil',
-      image_url: '/Images/Developers/swapnil.jpg',
-      modal_image_url: '/Images/Developers/tr-swapnil.png',
+      name: "Wasef Rahman Swapnil",
+      image_url: "/Images/Developers/swapnil.jpg",
+      modal_image_url: "/Images/Developers/tr-swapnil.png",
       profile_url: [
         {
-          platform: 'facebook',
-          url: 'https://www.facebook.com/profile.php?id=100083625623282',
+          platform: "facebook",
+          url: "https://www.facebook.com/profile.php?id=100083625623282",
         },
         {
-          platform: 'github',
-          url: 'https://github.com/The-XENO-Studios/',
+          platform: "github",
+          url: "https://github.com/The-XENO-Studios/",
         },
         {
-          platform: 'web',
-          url: 'https://xenostudios.vercel.app',
+          platform: "web",
+          url: "https://xenostudios.vercel.app",
         },
       ],
-      post: 'Member',
+      post: "Member",
       dept: "Batch '25",
       group: 8,
       roll: 12508025,
-      email: 'wasefrahmanswapnil@gmail.com',
+      email: "wasefrahmanswapnil@gmail.com",
     },
   ],
 };
