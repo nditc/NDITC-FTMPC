@@ -16,7 +16,7 @@ type devData = {
 };
 
 const x: devData = {
-  "THE WEB DEVELOPERS": [
+  "FULL-STACK WEB DEVELOPERS": [
     {
       name: "HRM Rafsan Amin",
       image_url: "/Images/Developers/hrm_rafsan.jpg",

@@ -224,7 +224,7 @@ const Navbar = () => {
                   className={
                     "block py-2 px-3 text-primary rounded-lg md:rounded-none md:hover:bg-transparent border-2 md:border-0 md:border-b-2 border-primary md:border-secondary  md:hover:text-secondary md:p-0" +
                     " " +
-                    (Route === "/register"
+                    (Route === "/"
                       ? "bg-primary text-white hover:bg-primary_dark  md:bg-transparent  md:text-secondary"
                       : "md:text-primary hover:bg-primary hover:text-white md:bg-transparent")
                   }
