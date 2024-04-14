@@ -94,7 +94,7 @@ const Page = () => {
   useEffect(() => {
     getConfig()
       .then((config: any) => {
-        if (config.registration_status) {
+        if (!config.registration_status) {
           Router.push('/registration-closed');
         } else {
           setConfigLoading(false);

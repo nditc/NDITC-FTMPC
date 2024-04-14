@@ -120,7 +120,7 @@ const Announcements = () => {
       setOrder(announcements[editState].order || 1580);
       setModalState(true);
     }
-  }, [editState]);
+  }, [editState, announcements]);
   return (
     <div className="container   p-6 md:p-8 pb-2 md:pb-4 bg-white rounded-xl my-8">
       <div className="flex flex-col md:flex-row gap-5 items-center justify-between">
