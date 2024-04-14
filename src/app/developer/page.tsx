@@ -13,7 +13,7 @@ const Developer = () => {
       <Modal modalState={modalState} setModalState={setModalState} />
       <div className=" container min-h-[100vh] py-[125px] relative flex flex-col">
         <div className="flex mt-0 md:mt-12 items-center md:items-start gap-3 xsm:gap-5">
-          <div className="rounded-full  bg-white  shadow-[5px_5px_20px_10px_#00000024] md:mb-3">
+          <div className="rounded-full aspect-square   bg-white  shadow-[5px_5px_20px_10px_#00000024] md:mb-3">
             <FaCode className="w-14 xsm:w-16 sm:w-20 h-16 sm:h-20 text-white bg-black rounded-full p-3 m-5 hover:-rotate-90 transition-all" />
           </div>
           <div>
