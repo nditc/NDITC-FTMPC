@@ -27,6 +27,7 @@ const EditConfig = () => {
     if (userAuth) {
       try {
         await setConfigAll(configs);
+        toast.success('Config Updated');
       } catch (err) {
         console.error(err);
 
@@ -91,7 +92,7 @@ const EditConfig = () => {
             className="bg-primary rounded-xl text-white text-lg py-2 px-8 transition-all w-full hover:bg-secondary_light hover:text-primary"
             type="submit"
           >
-            {loading ? <CgSpinner className="w-7 h-7 animate-spin text-white" /> : 'Update Data'}
+            {loading ? <CgSpinner className="w-7 h-7 animate-spin text-white" /> : 'Update Config'}
           </button>
         </div>
       </form>

@@ -107,6 +107,7 @@ const Page = () => {
               await updateDoc(doc(db, 'participants', userResult.uid), {
                 selected: userResult.selected,
               });
+              toast.success('Result Uploaded!');
               setLoadingIndexed(loadingIndex, false);
             } catch (err) {
               console.error(err);
