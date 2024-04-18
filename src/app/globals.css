@@ -40,9 +40,15 @@ body {
 p,
 div,
 ul,
-li {
+li,
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-family: Nunito;
-  overflow-wrap: break-all;
+  overflow-wrap: break-word;
+
   font-weight: 500;
 }
 nav li {

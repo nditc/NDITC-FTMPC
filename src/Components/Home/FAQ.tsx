@@ -1,30 +1,8 @@
 'use client';
 import React, { useState } from 'react';
-import Member from './Home/Member';
+import Member from './Member';
+import { BsQuestionCircle } from 'react-icons/bs';
 
-/*
-3. What programming languages can participants use in the contest?
-- 
-
-4.  
-Who was Father Richard William Timm, and why is the contest named in his honor?
-
-Father Richard William Timm was a notable figure known for his contributions to academia, humanitarianism, and biodiversity exploration. The contest is named in his honor to celebrate his enduring influence and legacy in these realms.
-What educational backgrounds are eligible to participate in FTMPC 4.0?
-
-FTMPC 4.0 is open to students from various educational backgrounds, including schools, colleges (including HSC batch-2023), and corresponding institutions such as polytechnic institutes (4th year and below).
-What programming languages can participants use in the contest?
-
-Participants can use Python, C, or C++ programming languages to tackle challenges inspired by the International Olympiad in Informatics (IOI) format.
-
-
-4. How long will the preliminary contest last, and what format will it follow?
-- The preliminary contest will last for 3 hours and will follow the IOI format.
-
-5. What measures are in place to address plagiarism issues during the contest?
-
-Contestants may use pre-existing third-party code but should be wary of template duplication to prevent confusion. Plagiarism, including sharing or copying code during the contest, results in immediate disqualification at the judges' discretion.
-*/
 const FAQS = [
   {
     title:
@@ -55,6 +33,7 @@ const FAQ = () => {
     <section className="w-screen h-fit pt-16 pb-16 object-cover  text-center">
       <div className="container">
         <h1 className="mx-auto mb-5 md:mb-8 ">
+          <BsQuestionCircle className="inline mr-3 w-8 md:w-10 h-8 md:h-10 align-top text-primary" />
           <span className="text-4xl md:text-5xl text-center">FREQUENTLY ASKED </span>{' '}
           <br className="inline md:hidden" />
           <span className="text-primary text-4xl md:text-5xl text-center">QUESTIONS </span>{' '}

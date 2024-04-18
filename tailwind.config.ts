@@ -9,6 +9,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        xsm: '365px',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
@@ -19,7 +22,8 @@ const config: Config = {
         primary_darkest: '#1d2121',
         secondary: '#2cb87e',
         secondary_light: '#53f295',
-        secondary_lighter: '#c0edc7',
+        secondary_lighter: '#D1FFD9',
+        secondary_lightest: '#e6faea',
       },
     },
   },

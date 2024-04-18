@@ -27,9 +27,9 @@ const Page = () => {
       signInWithEmailAndPassword(auth, user.email, password)
         .then(async (UserCred) => {
           const UserInfo = UserCred.user;
+          await deleteUser(UserInfo);
           await deleteDoc(doc(db, 'participants', UserInfo.uid));
           await deleteObject(ref(pfp, 'pfp/' + UserInfo.uid));
-          await deleteUser(UserInfo);
           toast.success(`User Deleted!.`);
           setLoading(false);
           Router.push('/');
@@ -39,6 +39,8 @@ const Page = () => {
           switch (error.code) {
             case 'auth/invalid-credential':
               toast.error(`Invalid password.`);
+              break;
+            case 'storage/object-not-found':
               break;
             default:
               console.error(error.message);

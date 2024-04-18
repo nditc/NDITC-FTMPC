@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
-import { RxCross2 } from "react-icons/rx";
-import { Suspense } from "react";
-import { LuLogIn } from "react-icons/lu";
-import { auth } from "@/config/firebase";
-import { FiUser } from "react-icons/fi";
-import { useAuthState } from "react-firebase-hooks/auth";
+import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname, useSearchParams } from 'next/navigation';
+import { RxCross2 } from 'react-icons/rx';
+import { Suspense } from 'react';
+import { LuLogIn } from 'react-icons/lu';
+import { auth } from '@/config/firebase';
+import { FiUser } from 'react-icons/fi';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const Navbar = () => {
   const [showOptions, setShowOptions] = useState(false);
@@ -24,11 +24,7 @@ const Navbar = () => {
       setShowOptions(false);
     };
     const handleClickOutside: EventListener = (e) => {
-      if (
-        navRef.current &&
-        e.target instanceof Node &&
-        !navRef.current.contains(e.target)
-      ) {
+      if (navRef.current && e.target instanceof Node && !navRef.current.contains(e.target)) {
         setShowOptions(false);
       }
     };
@@ -43,12 +39,12 @@ const Navbar = () => {
 
     listener();
 
-    window.addEventListener("hashchange", stateHandler);
-    window.addEventListener("resize", listener);
-    document.addEventListener("mousedown", handleClickOutside);
+    window.addEventListener('hashchange', stateHandler);
+    window.addEventListener('resize', listener);
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      window.removeEventListener("hashchange", stateHandler);
-      window.removeEventListener("resize", listener);
+      window.removeEventListener('hashchange', stateHandler);
+      window.removeEventListener('resize', listener);
     };
   }, [Route, Params]);
 
@@ -57,8 +53,8 @@ const Navbar = () => {
       <nav
         ref={navRef}
         className={
-          "bg-white fixed max-w-[100vw] w-full top-0 z-50 start-0 border border-gray-200 " +
-          (showOptions ? "border-transparent" : "")
+          'bg-white fixed max-w-[100vw] w-full top-0 z-50 start-0 border border-gray-200 ' +
+          (showOptions ? 'border-transparent' : '')
         }
       >
         <div className="container flex flex-wrap  items-center justify-between mx-auto py-4 px-1 relative">
@@ -84,8 +80,8 @@ const Navbar = () => {
                 type="button"
                 className="before:ease relative bg-primary_dark text-sm flex items-center overflow-hidden border Inter   shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-primary before:transition-all before:duration-300 hover:text-white hover:before:-rotate-180 text-white  font-ShareTechTown focus:ring-4 focus:outline-none focus:ring-secondary font-medium rounded-lg  px-4 md:px-2 lg:px-4 py-2 text-center"
               >
-                <FiUser className="w-4 mr-2 z-10" />
-                <span className="relative z-10">PROFILE</span>
+                <FiUser className="w-5 h-5 xsm:w-4 xsm:h-4 xsm:mr-2 z-10" />
+                <span className="relative z-10 hidden xsm:inline">PROFILE</span>
               </Link>
             ) : (
               <Link
@@ -93,8 +89,8 @@ const Navbar = () => {
                 type="button"
                 className="before:ease relative bg-primary_dark text-sm flex items-center overflow-hidden border Inter   shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-primary before:transition-all before:duration-300 hover:text-white hover:before:-rotate-180 text-white  font-ShareTechTown focus:ring-4 focus:outline-none focus:ring-secondary font-medium rounded-lg  px-4 md:px-2 lg:px-4 py-2 text-center"
               >
-                <LuLogIn className="w-4 mr-2 z-10" />
-                <span className="relative z-10">LOGIN</span>
+                <LuLogIn className="w-5 h-5 xsm:w-4 xsm:h-4 xsm:mr-2 z-10" />
+                <span className="relative z-10 hidden xsm:inline">LOGIN</span>
               </Link>
             )}
             <button
@@ -107,7 +103,7 @@ const Navbar = () => {
             >
               <span className="sr-only">Open main menu</span>
               {showOptions ? (
-                <RxCross2 className={"w-6 h-6"} />
+                <RxCross2 className={'w-6 h-6'} />
               ) : (
                 <svg
                   className="w-5 h-5"
@@ -129,17 +125,11 @@ const Navbar = () => {
           </div>
           <div
             style={{
-              transformOrigin: "top",
+              transformOrigin: 'top',
             }}
             className={`items-center justify-between bg-white w-screen md:flex z-30  md:w-auto md:order-1 transition ${
-              showOptions || windowWidth >= 768
-                ? "scale-y-100 "
-                : "scale-y-0 pointer-events-none"
-            } ${
-              windowWidth < 768
-                ? "fixed top-[72px] pb-5 left-0 border-b border-gray-200"
-                : ""
-            }`}
+              showOptions || windowWidth >= 768 ? 'scale-y-100 ' : 'scale-y-0 pointer-events-none'
+            } ${windowWidth < 768 ? 'fixed top-[72px] pb-5 left-0 border-b border-gray-200' : ''}`}
             id="navbar-sticky"
           >
             <ul className="flex flex-col gap-1 items-center Inter md:gap-0  container  p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-5 lg:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
@@ -150,11 +140,11 @@ const Navbar = () => {
                   }}
                   href="/"
                   className={
-                    "block py-2 px-3  text-gray-900 rounded md:hover:bg-transparent md:hover:text-secondary   md:p-0" +
-                    " " +
-                    (Route === "/"
-                      ? "bg-primary text-white hover:bg-primary_dark md:bg-transparent  md:text-secondary"
-                      : "md:text-black hover:bg-gray-200 md:bg-transparent")
+                    'block py-2 px-3  text-gray-900 rounded md:hover:bg-transparent md:hover:text-secondary   md:p-0' +
+                    ' ' +
+                    (Route === '/'
+                      ? 'bg-primary text-white hover:bg-primary_dark md:bg-transparent  md:text-secondary'
+                      : 'md:text-black hover:bg-gray-200 md:bg-transparent')
                   }
                   aria-current="page"
                 >
@@ -168,11 +158,11 @@ const Navbar = () => {
                   }}
                   href="/#about"
                   className={
-                    "block py-2 px-3 text-gray-900 rounded md:hover:bg-transparent   md:hover:text-secondary md:p-0" +
-                    " " +
-                    (Route === "/about"
-                      ? "bg-primary text-white hover:bg-primary_dark  md:bg-transparent  md:text-secondary"
-                      : "md:text-black hover:bg-gray-200 md:bg-transparent")
+                    'block py-2 px-3 text-gray-900 rounded md:hover:bg-transparent   md:hover:text-secondary md:p-0' +
+                    ' ' +
+                    (Route === '/about'
+                      ? 'bg-primary text-white hover:bg-primary_dark  md:bg-transparent  md:text-secondary'
+                      : 'md:text-black hover:bg-gray-200 md:bg-transparent')
                   }
                 >
                   About
@@ -185,11 +175,11 @@ const Navbar = () => {
                   }}
                   href="/#rules"
                   className={
-                    "block py-2 px-3 text-gray-900 rounded md:hover:bg-transparent   md:hover:text-secondary md:p-0" +
-                    " " +
-                    (Route === "/about"
-                      ? "bg-primary text-white hover:bg-primary_dark  md:bg-transparent  md:text-secondary"
-                      : "md:text-black hover:bg-gray-200 md:bg-transparent")
+                    'block py-2 px-3 text-gray-900 rounded md:hover:bg-transparent   md:hover:text-secondary md:p-0' +
+                    ' ' +
+                    (Route === '/about'
+                      ? 'bg-primary text-white hover:bg-primary_dark  md:bg-transparent  md:text-secondary'
+                      : 'md:text-black hover:bg-gray-200 md:bg-transparent')
                   }
                 >
                   Rules
@@ -222,11 +212,11 @@ const Navbar = () => {
                   }}
                   href="https://init.nditc.net"
                   className={
-                    "block py-2 px-3 text-primary rounded-lg md:rounded-none md:hover:bg-transparent border-2 md:border-0 md:border-b-2 border-primary md:border-secondary  md:hover:text-secondary md:p-0" +
-                    " " +
-                    (Route === "/"
-                      ? "bg-primary text-white hover:bg-primary_dark  md:bg-transparent  md:text-secondary"
-                      : "md:text-primary hover:bg-primary hover:text-white md:bg-transparent")
+                    'block py-2 px-3 text-primary rounded-lg md:rounded-none md:hover:bg-transparent border-2 md:border-0 md:border-b-2 border-primary md:border-secondary  md:hover:text-secondary md:p-0' +
+                    ' ' +
+                    (Route === '/'
+                      ? 'bg-primary text-white hover:bg-primary_dark  md:bg-transparent  md:text-secondary'
+                      : 'md:text-primary hover:bg-primary hover:text-white md:bg-transparent')
                   }
                 >
                   INIT 4.0

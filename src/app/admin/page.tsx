@@ -2,7 +2,6 @@
 import Announcements from '@/Components/Admin/AdminAnnouncements';
 import EditConfig from '@/Components/Admin/EditConfig';
 import Error from '@/Components/Error';
-import File from '@/Components/File';
 import { auth, db } from '@/config/firebase';
 import {
   collection,
@@ -14,13 +13,11 @@ import {
   updateDoc,
   where,
 } from 'firebase/firestore';
-import { getAll } from 'firebase/remote-config';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import React, { useEffect, useState, useRef } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { BiDownload, BiUpload } from 'react-icons/bi';
 import { CgSpinner } from 'react-icons/cg';
-import { GrAnnounce } from 'react-icons/gr';
 import { toast } from 'react-toastify';
 import * as XLSX from 'xlsx';
 
@@ -28,9 +25,10 @@ const Page = () => {
   const [adminAuth, setAdminAuth] = useState<boolean>(false);
   const [user] = useAuthState(auth);
   const [authLoading, setAuthLoading] = useState<boolean>(true);
+  const [file, setFile] = useState<FileList | null>();
   const [loading, setLoading] = useState<boolean[]>([false, false, false, false]);
   const downloadRef = useRef<HTMLAnchorElement>(null);
-  const fileRef = useRef<HTMLInputElement>(null);
+  const fileRef = useRef<HTMLFormElement>(null);
   const [dataURL, setUrl] = useState<string>('');
   const Router = useRouter();
 
@@ -89,11 +87,10 @@ const Page = () => {
     }
   };
   const uploadResult = (type: 'pre_result' | 'final_result', loadingIndex: number) => {
-    setLoadingIndexed(loadingIndex, true);
-    if (fileRef.current?.files) {
-      const file = fileRef.current?.files[0];
+    if (file && file.length > 0) {
+      setLoadingIndexed(loadingIndex, true);
       const reader = new FileReader();
-      reader.readAsArrayBuffer(file);
+      reader.readAsArrayBuffer(file[0]);
       reader.onload = (e) => {
         console.log(e.target?.result);
         const workBook = XLSX.read(e.target?.result, { type: 'binary' });
@@ -107,16 +104,23 @@ const Page = () => {
               await updateDoc(doc(db, 'participants', userResult.uid), {
                 selected: userResult.selected,
               });
-              toast.success('Result Uploaded!');
-              setLoadingIndexed(loadingIndex, false);
+              if (index === json.length - 1) {
+                toast.success('Result Uploaded!');
+                setLoadingIndexed(loadingIndex, false);
+              }
             } catch (err) {
               console.error(err);
               toast.error('Something went wrong!');
               setLoadingIndexed(loadingIndex, false);
+              return;
             }
           });
         }
+        setFile(null);
+        fileRef.current?.reset();
       };
+    } else {
+      toast.error('There are no files!');
     }
   };
   useEffect(() => {
@@ -150,18 +154,7 @@ const Page = () => {
               ADMIN <span className="text-primary">PANEL</span>
             </h1>
             <p className="mb-5 mt-3">Click once and wait for at least 15 seconds.</p>
-            <div className="flex flex-wrap gap-5">
-              <button
-                disabled={loading[0]}
-                className="hover:bg-primary_dark hover:text-white  text-lg flex-1 justify-center  transition-colors px-5 py-3 inline-flex focus:ring-2 focus:ring-secondary bg-primary text-white items-center gap-2 rounded-lg leading-[1.15] shadow-sm"
-                onClick={() => {
-                  auth.signOut();
-                  Router.push('/admin/login');
-                }}
-              >
-                Sign Out
-              </button>
-            </div>
+
             {/* Downloads */}
             <div className="container   p-6  bg-white rounded-xl my-6">
               <div className="flex flex-wrap gap-5 items-center justify-between">
@@ -207,7 +200,14 @@ const Page = () => {
                     <span className="">UPLOADS</span>
                   </h1>
                 </div>
-                <input className="file:px-5 file:py-3 my-0 " ref={fileRef} type={'file'} />
+
+                <form ref={fileRef}>
+                  <input
+                    onChange={(e) => setFile(e.target.files)}
+                    className="file:px-5 file:py-3 my-0 "
+                    type={'file'}
+                  />
+                </form>
                 <div className="flex gap-4">
                   <button
                     disabled={loading[2]}
@@ -239,7 +239,18 @@ const Page = () => {
 
             <Announcements />
             <EditConfig />
-
+            <div className="flex flex-wrap gap-5">
+              <button
+                disabled={loading[0]}
+                className="hover:bg-primary_dark hover:text-white  text-lg flex-1 justify-center  transition-colors px-5 py-3 inline-flex focus:ring-2 focus:ring-secondary bg-primary text-white items-center gap-2 rounded-lg leading-[1.15] shadow-sm"
+                onClick={() => {
+                  auth.signOut();
+                  Router.push('/login');
+                }}
+              >
+                Sign Out
+              </button>
+            </div>
             <a className="hidden" ref={downloadRef} href={dataURL} download={true}>
               Down
             </a>

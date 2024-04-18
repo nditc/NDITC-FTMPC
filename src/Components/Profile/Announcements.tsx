@@ -23,12 +23,10 @@ const Announcements = () => {
       });
   }, []);
   return (
-    <div className="container  p-6 md:p-8 pb-2 md:pb-4 bg-white rounded-xl my-8">
-      <div className="flex gap-5 items-center">
-        <GrAnnounce className="w-12 h-12 text-primary" />
-        <h1 className="text-4xl">
-          <span className="">ANNOUNCEMENTS</span>
-        </h1>
+    <div className="container pt-6  p-5 md:p-8 pb-2 md:pb-4 bg-white rounded-xl my-4 md:my-8">
+      <div className="ml-2 flex gap-3  items-center">
+        <GrAnnounce className="w-8 h-8 xsm:w-10 xsm:h-10 text-primary" />
+        <h1 className="text-3xl mt-1 xsm:text-4xl leading-none ">ANNOUNCEMENTS</h1>
       </div>
       <div className="flex flex-col gap-5 my-5 max-h-[550px]  overflow-y-scroll overflow-x-clip">
         {announcements.map((data: any, index: number) => {

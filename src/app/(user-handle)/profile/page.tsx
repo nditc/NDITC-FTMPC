@@ -21,6 +21,7 @@ import { IoIosPower } from 'react-icons/io';
 import Announcements from '@/Components/Profile/Announcements';
 import { CgSpinner } from 'react-icons/cg';
 import Error from '@/Components/Error';
+import ContestCard from '@/Components/Profile/ContestCard';
 
 const Page = () => {
   const [userData, setUserData] = useState<any | undefined>(undefined);
@@ -85,8 +86,8 @@ const Page = () => {
       {userData ? (
         <div className="py-28  md:py-36 grid bg-[#F6F6F6] min-h-[100vh]">
           <div className="">
-            <div className="flex container justify-between  flex-col xl:flex-row gap-4  mb-4">
-              <div className="flex-1 flex flex-col md:flex-row  text-center md:text-left justify-start items-center gap-8">
+            <div className="flex container justify-center items-stretch xl:justify-between  flex-col xl:flex-row gap-4  mb-4">
+              <div className="flex-1 flex flex-col md:flex-row  text-center md:text-left justify-center xl:justify-start items-center gap-8">
                 <ProfilePic
                   imageUrl={userData.imageUrl}
                   setImage={(url: string) => {
@@ -95,8 +96,8 @@ const Page = () => {
                 />
                 <div className="">
                   <p className="text-lg mb-1">Welcome Back!</p>
-                  <h1 className="text-4xl md:text-5xl text-primary">{userData.name}</h1>
-                  <h2 className="text-xl md:text-2xl  Nunito">{userData.email}</h2>
+                  <h1 className="text-4xl md:text-5xl text-primary break-all">{userData.name}</h1>
+                  <h2 className="text-xl md:text-2xl  Nunito break-all">{userData.email}</h2>
                   <div className="flex  gap-2 mt-4">
                     <button
                       onClick={logOut}
@@ -108,9 +109,7 @@ const Page = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex-1 py-6 flex xl:ml-16 rounded-xl items-center justify-center bg-secondary_lighter text-primary_dark">
-                Contest Details Coming Soon
-              </div>
+              <ContestCard />
             </div>
             <Announcements />
             <EditData userData={userData} setUserData={setUserData} />

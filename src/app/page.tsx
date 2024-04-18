@@ -1,12 +1,12 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 
-import Setter from "@/Components/Home/Setter";
-import Hero from "@/Components/Home/Hero";
-import About from "@/Components/Home/About";
-import Rules from "@/Components/Home/Rules";
-import Contact from "@/Components/Contact";
-import FAQ from "@/Components/FAQ";
-import DeveloperLink from "@/Components/DeveloperLink";
+import Setter from '@/Components/Home/Setter';
+import Hero from '@/Components/Home/Hero';
+import About from '@/Components/Home/About';
+import Rules from '@/Components/Home/Rules';
+import Contact from '@/Components/Contact';
+import FAQ from '@/Components/Home/FAQ';
+import DeveloperLink from '@/Components/DeveloperLink';
 
 const Home = () => {
   return (

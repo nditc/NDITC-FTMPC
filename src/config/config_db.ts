@@ -3,7 +3,7 @@ import { db } from './firebase';
 import { update } from 'firebase/database';
 
 const getConfig = () => {
-  return new Promise(async (resolve, reject) => {
+  return new Promise<any>(async (resolve, reject) => {
     try {
       const config = await getDoc(doc(db, 'config', 'config'));
       resolve(config.data());

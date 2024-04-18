@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { SlCalender } from 'react-icons/sl';
 
 const Hero = () => {
   return (
@@ -16,11 +17,12 @@ const Hero = () => {
           </h1>
 
           <p className="mt-3 text-base 2xl:text-[1.375rem] md:max-w-[90%]  2xl:leading-8  break-words w-[85vw] md:w-fit text-center md:text-left Nunito">
-            Dive headfirst into the code arena! NDITC&apos;s FTMPC 4.0 is your chance to clash with
-            fellow tech minds. This contest throws down coding challenges that will transform you
-            into a programming warrior.
+            Dive headfirst into the code arena for{' '}
+            <span className="text-secondary font-bold">FREE!</span> NDITC&apos;s FTMPC 4.0 is your
+            chance to clash with fellow tech minds. This contest throws down coding challenges that
+            will transform you into a programming warrior.
           </p>
-
+          <img src="/Images/deadline.svg" alt="dealine" className="max-w-[350px] w-[90%] mt-3" />
           <a
             href="/register"
             className="hover:border-secondary_light before:ease relative flex items-center justify-center  overflow-hidden shadow-2xl transition-all before:absolute before:top-1/2 before:h-0 before:w-64 before:origin-center before:-translate-x-20 before:rotate-45 before:bg-secondary_light before:duration-300 hover:shadow-secondary_light hover:text-primary_dark hover:before:h-64 hover:before:-translate-y-32 Bebas text-xl mt-5 py-2 font-Bebas px-7 me-2 mb-2 font-medium text-whiterounded-lg border focus:z-10 focus:ring-4  focus:ring-primary bg-primary text-white border-primary  hover:bg-zinc-700 rounded-lg"
@@ -40,6 +42,7 @@ const Hero = () => {
       <section className="w-screen h-fit pt-16 pb-16 object-cover  bg-top tech-bg  text-center md:text-lg">
         <div className="container leading-7">
           <h1 className="mx-auto mb-5 md:mb-8 ">
+            <SlCalender className="inline mr-3 w-8 md:w-10 h-8 md:h-10 align-top text-primary" />
             <span className="text-4xl md:text-5xl text-center text-primary">KEEP EYES</span>
             {'  '}
             <span className=" ml-1 text-4xl md:text-5xl text-center">ON </span>{' '}
