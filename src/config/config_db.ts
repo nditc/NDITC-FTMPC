@@ -1,6 +1,8 @@
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from './firebase';
 import { update } from 'firebase/database';
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 const getConfig = () => {
   return new Promise<any>(async (resolve, reject) => {
@@ -32,5 +34,22 @@ const setConfigAll = (config: any) => {
     }
   });
 };
-
-export { getConfig, setConfig, setConfigAll };
+const useConfig = (deps: any[]) => {
+  const [config, setConfigState] = useState<any>();
+  const [loading, setLoding] = useState<boolean>(false);
+  useEffect(() => {
+    setLoding(true);
+    getConfig()
+      .then((config: any) => {
+        setConfigState(config);
+        setLoding(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        toast.error('Aww Snap!');
+        setLoding(false);
+      });
+  }, deps);
+  return [config, setConfig, loading];
+};
+export { getConfig, setConfig, setConfigAll, useConfig };

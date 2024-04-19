@@ -10,12 +10,14 @@ import { LuLogIn } from 'react-icons/lu';
 import { auth } from '@/config/firebase';
 import { FiUser } from 'react-icons/fi';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useConfig } from '@/config/config_db';
 
 const Navbar = () => {
   const [showOptions, setShowOptions] = useState(false);
   const Route = usePathname();
   const Params = useSearchParams();
   const navRef = useRef<HTMLElement>(null);
+  const [config] = useConfig([]);
   const [windowWidth, setWindowWidth] = useState(800);
   const [userAuth, loading, error] = useAuthState(auth);
 
@@ -205,6 +207,21 @@ const Navbar = () => {
                   Contact
                 </Link>
               </li>
+              {config?.pre_result_published ? (
+                <li className="w-full md:w-auto text-center">
+                  <Link
+                    onClick={() => {
+                      setShowOptions(false);
+                    }}
+                    href={
+                      config?.final_result_published ? '/standings/final' : '/standings/preliminary'
+                    }
+                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-secondary md:p-0"
+                  >
+                    Result
+                  </Link>
+                </li>
+              ) : null}
               <li className="w-full md:w-auto text-center">
                 <Link
                   onClick={() => {

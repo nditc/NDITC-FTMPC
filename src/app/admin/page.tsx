@@ -2,7 +2,7 @@
 import Announcements from '@/Components/Admin/AdminAnnouncements';
 import EditConfig from '@/Components/Admin/EditConfig';
 import Error from '@/Components/Error';
-import { auth, db } from '@/config/firebase';
+import { auth, db, pfp } from '@/config/firebase';
 import {
   collection,
   doc,
@@ -13,6 +13,7 @@ import {
   updateDoc,
   where,
 } from 'firebase/firestore';
+import { ref, uploadBytes } from 'firebase/storage';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState, useRef } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -91,33 +92,51 @@ const Page = () => {
       setLoadingIndexed(loadingIndex, true);
       const reader = new FileReader();
       reader.readAsArrayBuffer(file[0]);
-      reader.onload = (e) => {
-        console.log(e.target?.result);
-        const workBook = XLSX.read(e.target?.result, { type: 'binary' });
-        const json = XLSX.utils.sheet_to_json(workBook.Sheets[workBook.SheetNames[0]]);
+      reader.onload = async (e) => {
+        try {
+          console.log(e.target?.result);
+          const workBook = XLSX.read(e.target?.result, { type: 'binary' });
+          const json = XLSX.utils.sheet_to_json(workBook.Sheets[workBook.SheetNames[0]]);
+          const upJson: any[] = [];
 
-        if (json.length >= 1) {
-          json.forEach(async (userResult: any, index) => {
-            try {
-              console.dir(userResult);
-              await setDoc(doc(db, type, userResult.uid), userResult);
-              await updateDoc(doc(db, 'participants', userResult.uid), {
-                selected: userResult.selected,
-              });
-              if (index === json.length - 1) {
-                toast.success('Result Uploaded!');
-                setLoadingIndexed(loadingIndex, false);
-              }
-            } catch (err) {
-              console.error(err);
-              toast.error('Something went wrong!');
-              setLoadingIndexed(loadingIndex, false);
-              return;
-            }
+          for (let i = 0; i < json.length; i++) {
+            const userResult: any = json[i];
+            const userData = (await getDoc(doc(db, 'participants', userResult.uid))).data();
+            console.table(userResult);
+            console.log(userData);
+            upJson.push({
+              name: userData?.name,
+              institution: userData?.institution,
+              imageUrl: userData?.imageUrl,
+              ...userResult,
+            });
+            await setDoc(doc(db, type, userResult.uid), {
+              name: userData?.name || null,
+              institution: userData?.institution || null,
+              imageUrl: userData?.imageUrl || null,
+              ...userResult,
+            });
+            await updateDoc(doc(db, 'participants', userResult.uid), {
+              selected: userResult.selected,
+            });
+          }
+          const uploadBlob = new Blob([JSON.stringify(upJson)], {
+            type: 'application/json',
           });
+          await uploadBytes(ref(pfp, 'result/' + type), uploadBlob);
+          toast.success('Result Uploaded!');
+          setLoadingIndexed(loadingIndex, false);
+          setFile(null);
+          fileRef.current?.reset();
+        } catch (err) {
+          console.error(err);
+          toast.error('Something went wrong!');
+          setFile(null);
+          fileRef.current?.reset();
+
+          setLoadingIndexed(loadingIndex, false);
+          return;
         }
-        setFile(null);
-        fileRef.current?.reset();
       };
     } else {
       toast.error('There are no files!');
