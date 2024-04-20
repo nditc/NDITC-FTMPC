@@ -16,6 +16,7 @@ const Home = () => {
         <About />
         <Rules />
 
+        <Setter />
         <FAQ />
         <Contact />
         <DeveloperLink />

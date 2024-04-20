@@ -30,7 +30,7 @@ const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number>(1);
   //here index starts from 1. 0 means all closed
   return (
-    <section className="w-screen h-fit pt-16 pb-16 object-cover  text-center">
+    <section id="faq" className="w-screen h-fit pt-16 pb-16 object-cover  text-center">
       <div className="container">
         <h1 className="mx-auto mb-5 md:mb-8 ">
           <BsQuestionCircle className="inline mr-3 w-8 md:w-10 h-8 md:h-10 align-top text-primary" />

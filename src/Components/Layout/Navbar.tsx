@@ -33,7 +33,7 @@ const Navbar = () => {
 
     const listener = () => {
       setWindowWidth(window.innerWidth);
-      if (window.innerWidth >= 768) {
+      if (window.innerWidth >= 1024) {
         setShowOptions(false);
       }
     };
@@ -75,12 +75,12 @@ const Navbar = () => {
               height={512}
             />
           </Link>
-          <div className="flex md:order-2 space-x-3   z-50 md:space-x-0 rtl:space-x-reverse">
+          <div className="flex lg:order-2 space-x-3   z-50 lg:space-x-0 rtl:space-x-reverse">
             {userAuth ? (
               <Link
                 href="/profile"
                 type="button"
-                className="before:ease relative bg-primary_dark text-sm flex items-center overflow-hidden border Inter   shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-primary before:transition-all before:duration-300 hover:text-white hover:before:-rotate-180 text-white  font-ShareTechTown focus:ring-4 focus:outline-none focus:ring-secondary font-medium rounded-lg  px-4 md:px-2 lg:px-4 py-2 text-center"
+                className="before:ease relative bg-primary_dark text-sm flex items-center overflow-hidden border Inter   shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-primary before:transition-all before:duration-300 hover:text-white hover:before:-rotate-180 text-white  font-ShareTechTown focus:ring-4 focus:outline-none focus:ring-secondary font-medium rounded-lg  px-4 lg:px-2 xl:px-4 py-2 text-center"
               >
                 <FiUser className="w-5 h-5 xsm:w-4 xsm:h-4 xsm:mr-2 z-10" />
                 <span className="relative z-10 hidden xsm:inline">PROFILE</span>
@@ -89,7 +89,7 @@ const Navbar = () => {
               <Link
                 href="/login"
                 type="button"
-                className="before:ease relative bg-primary_dark text-sm flex items-center overflow-hidden border Inter   shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-primary before:transition-all before:duration-300 hover:text-white hover:before:-rotate-180 text-white  font-ShareTechTown focus:ring-4 focus:outline-none focus:ring-secondary font-medium rounded-lg  px-4 md:px-2 lg:px-4 py-2 text-center"
+                className="before:ease relative bg-primary_dark text-sm flex items-center overflow-hidden border Inter   shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-primary before:transition-all before:duration-300 hover:text-white hover:before:-rotate-180 text-white  font-ShareTechTown focus:ring-4 focus:outline-none focus:ring-secondary font-medium rounded-lg  px-4 lg:px-2 xl:px-4 py-2 text-center"
               >
                 <LuLogIn className="w-5 h-5 xsm:w-4 xsm:h-4 xsm:mr-2 z-10" />
                 <span className="relative z-10 hidden xsm:inline">LOGIN</span>
@@ -99,7 +99,7 @@ const Navbar = () => {
               onClick={() => setShowOptions(!showOptions)}
               data-collapse-toggle="navbar-sticky"
               type="button"
-              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-200"
+              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-200"
               aria-controls="navbar-sticky"
               aria-expanded="false"
             >
@@ -129,62 +129,96 @@ const Navbar = () => {
             style={{
               transformOrigin: 'top',
             }}
-            className={`items-center justify-between bg-white w-screen md:flex z-30  md:w-auto md:order-1 transition ${
-              showOptions || windowWidth >= 768 ? 'scale-y-100 ' : 'scale-y-0 pointer-events-none'
-            } ${windowWidth < 768 ? 'fixed top-[72px] pb-5 left-0 border-b border-gray-200' : ''}`}
+            className={`items-center justify-between bg-white w-screen lg:flex z-30  lg:w-auto lg:order-1 transition ${
+              showOptions || windowWidth >= 1024 ? 'scale-y-100 ' : 'scale-y-0 pointer-events-none'
+            } ${windowWidth < 1024 ? 'fixed top-[72px] pb-5 left-0 border-b border-gray-200' : ''}`}
             id="navbar-sticky"
           >
-            <ul className="flex flex-col gap-1 items-center Inter md:gap-0  container  p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-5 lg:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
-              <li className="w-full md:w-auto text-center">
+            <ul className="flex flex-col gap-1 items-center Inter lg:gap-0  container  p-4 lg:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 lg:space-x-5 xl:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 lg:bg-white">
+              <li className="w-full lg:w-auto text-center">
                 <Link
                   onClick={() => {
                     setShowOptions(false);
                   }}
                   href="/"
                   className={
-                    'block py-2 px-3  text-gray-900 rounded md:hover:bg-transparent md:hover:text-secondary   md:p-0' +
+                    'block py-2 px-3  text-gray-900 rounded lg:hover:bg-transparent lg:hover:text-secondary   lg:p-0' +
                     ' ' +
                     (Route === '/'
-                      ? 'bg-primary text-white hover:bg-primary_dark md:bg-transparent  md:text-secondary'
-                      : 'md:text-black hover:bg-gray-200 md:bg-transparent')
+                      ? 'bg-primary text-white hover:bg-primary_dark lg:bg-transparent  lg:text-secondary'
+                      : 'lg:text-black hover:bg-gray-200 lg:bg-transparent')
                   }
                   aria-current="page"
                 >
                   Home
                 </Link>
               </li>
-              <li className="w-full md:w-auto text-center">
+              <li className="w-full lg:w-auto text-center">
                 <Link
                   onClick={() => {
                     setShowOptions(false);
                   }}
                   href="/#about"
                   className={
-                    'block py-2 px-3 text-gray-900 rounded md:hover:bg-transparent   md:hover:text-secondary md:p-0' +
+                    'block py-2 px-3 text-gray-900 rounded lg:hover:bg-transparent   lg:hover:text-secondary lg:p-0' +
                     ' ' +
-                    (Route === '/about'
-                      ? 'bg-primary text-white hover:bg-primary_dark  md:bg-transparent  md:text-secondary'
-                      : 'md:text-black hover:bg-gray-200 md:bg-transparent')
+                    (Route === '/asasasasasassdafawreq'
+                      ? 'bg-primary text-white hover:bg-primary_dark  lg:bg-transparent  lg:text-secondary'
+                      : 'lg:text-black hover:bg-gray-200 lg:bg-transparent')
                   }
                 >
                   About
                 </Link>
               </li>
-              <li className="w-full md:w-auto text-center">
+              <li className="w-full lg:w-auto text-center">
                 <Link
                   onClick={() => {
                     setShowOptions(false);
                   }}
                   href="/#rules"
                   className={
-                    'block py-2 px-3 text-gray-900 rounded md:hover:bg-transparent   md:hover:text-secondary md:p-0' +
+                    'block py-2 px-3 text-gray-900 rounded lg:hover:bg-transparent   lg:hover:text-secondary lg:p-0' +
                     ' ' +
-                    (Route === '/about'
-                      ? 'bg-primary text-white hover:bg-primary_dark  md:bg-transparent  md:text-secondary'
-                      : 'md:text-black hover:bg-gray-200 md:bg-transparent')
+                    (Route === '/asasasasasassdafawreq'
+                      ? 'bg-primary text-white hover:bg-primary_dark  lg:bg-transparent  lg:text-secondary'
+                      : 'lg:text-black hover:bg-gray-200 lg:bg-transparent')
                   }
                 >
                   Rules
+                </Link>
+              </li>
+              <li className="w-full lg:w-auto text-center">
+                <Link
+                  onClick={() => {
+                    setShowOptions(false);
+                  }}
+                  href="/#setter"
+                  className={
+                    'block py-2 px-3 text-gray-900 rounded lg:hover:bg-transparent   lg:hover:text-secondary lg:p-0' +
+                    ' ' +
+                    (Route === '/asasasasasassdafawreq'
+                      ? 'bg-primary text-white hover:bg-primary_dark  lg:bg-transparent  lg:text-secondary'
+                      : 'lg:text-black hover:bg-gray-200 lg:bg-transparent')
+                  }
+                >
+                  Setter
+                </Link>
+              </li>
+              <li className="w-full lg:w-auto text-center">
+                <Link
+                  onClick={() => {
+                    setShowOptions(false);
+                  }}
+                  href="/#faq"
+                  className={
+                    'block py-2 px-3 text-gray-900 rounded lg:hover:bg-transparent   lg:hover:text-secondary lg:p-0' +
+                    ' ' +
+                    (Route === '/asasasasasassdafawreq'
+                      ? 'bg-primary text-white hover:bg-primary_dark  lg:bg-transparent  lg:text-secondary'
+                      : 'lg:text-black hover:bg-gray-200 lg:bg-transparent')
+                  }
+                >
+                  FAQ
                 </Link>
               </li>
               {/* <li>
@@ -196,19 +230,19 @@ const Navbar = () => {
                 />
               </li> */}
 
-              <li className="w-full md:w-auto text-center">
+              <li className="w-full lg:w-auto text-center">
                 <Link
                   onClick={() => {
                     setShowOptions(false);
                   }}
                   href="/#Contact"
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-secondary md:p-0"
+                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 lg:hover:bg-transparent lg:hover:text-secondary lg:p-0"
                 >
                   Contact
                 </Link>
               </li>
               {config?.pre_result_published ? (
-                <li className="w-full md:w-auto text-center">
+                <li className="w-full lg:w-auto text-center">
                   <Link
                     onClick={() => {
                       setShowOptions(false);
@@ -216,24 +250,24 @@ const Navbar = () => {
                     href={
                       config?.final_result_published ? '/standings/final' : '/standings/preliminary'
                     }
-                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-secondary md:p-0"
+                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 lg:hover:bg-transparent lg:hover:text-secondary lg:p-0"
                   >
                     Result
                   </Link>
                 </li>
               ) : null}
-              <li className="w-full md:w-auto text-center">
+              <li className="w-full lg:w-auto text-center">
                 <Link
                   onClick={() => {
                     setShowOptions(false);
                   }}
                   href="https://init.nditc.net"
                   className={
-                    'block py-2 px-3 text-primary rounded-lg md:rounded-none md:hover:bg-transparent border-2 md:border-0 md:border-b-2 border-primary md:border-secondary  md:hover:text-secondary md:p-0' +
+                    'block py-2 px-3 text-primary rounded-lg lg:rounded-none lg:hover:bg-transparent border-2 lg:border-0 lg:border-b-2 border-primary lg:border-secondary  lg:hover:text-secondary lg:p-0' +
                     ' ' +
                     (Route === '/'
-                      ? 'bg-primary text-white hover:bg-primary_dark  md:bg-transparent  md:text-secondary'
-                      : 'md:text-primary hover:bg-primary hover:text-white md:bg-transparent')
+                      ? 'bg-primary text-white hover:bg-primary_dark  lg:bg-transparent  lg:text-secondary'
+                      : 'lg:text-primary hover:bg-primary hover:text-white lg:bg-transparent')
                   }
                 >
                   INIT 4.0
