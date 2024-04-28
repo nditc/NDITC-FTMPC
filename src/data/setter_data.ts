@@ -42,6 +42,13 @@ const x: setter[] = [
     profile_url: [],
   },
   {
+    name: 'Fahim Tajwar Saikat',
+    image_url: '/Images/setters/Fahim Tajwar Saikat.png',
+    post: 'World Finalist',
+    dept: 'ICPC',
+    profile_url: [],
+  },
+  {
     name: 'Saleque Bin Hossain Alif',
     image_url: '/Images/setters/Saleque Bin Hossain Alif.jpg',
     post: 'CSE',
