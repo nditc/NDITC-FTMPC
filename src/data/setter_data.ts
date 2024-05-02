@@ -20,6 +20,13 @@ const x: setter[] = [
     dept: 'Amazon',
     profile_url: [],
   },
+   {
+    name: 'Zakir Hossain',
+    image_url: '/Images/setters/Zakir Hossain.jpg',
+    post: 'Associate Software Engineer',
+    dept: 'Orbitax',
+    profile_url: [],
+  },
   {
     name: 'Sachin Deb',
     image_url: '/Images/setters/Sachin Deb.jpg',
