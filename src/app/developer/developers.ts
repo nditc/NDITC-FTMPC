@@ -21,6 +21,7 @@ const x: devData = {
       name: "HRM Rafsan Amin",
       image_url: "/Images/Developers/hrm_rafsan.jpg",
       modal_image_url: "/Images/Developers/tr-hrm_rafsan.png",
+      imageInCenter: false,
       profile_url: [
         {
           platform: "facebook",
@@ -45,6 +46,7 @@ const x: devData = {
       name: "Wasef Rahman Swapnil",
       image_url: "/Images/Developers/swapnil.jpg",
       modal_image_url: "/Images/Developers/tr-swapnil.png",
+      imageInCenter: true,
       profile_url: [
         {
           platform: "facebook",
