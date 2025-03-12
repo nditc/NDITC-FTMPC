@@ -11,7 +11,7 @@ import NextTopLoader from 'nextjs-toploader';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'FTMPC 4.0',
+  title: 'FTMPC 5.0',
   description: 'Prove Your Coding Skills',
   icons: { icon: 'favicon.ico' },
   openGraph: {
