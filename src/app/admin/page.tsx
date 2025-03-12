@@ -27,7 +27,7 @@ const Page = () => {
   const [user] = useAuthState(auth);
   const [authLoading, setAuthLoading] = useState<boolean>(true);
   const [file, setFile] = useState<FileList | null>();
-  const [loading, setLoading] = useState<boolean[]>([false, false, false, false]);
+  const [loading, setLoading] = useState<boolean[]>([false, false, false, false, false]);
   const downloadRef = useRef<HTMLAnchorElement>(null);
   const fileRef = useRef<HTMLFormElement>(null);
   const [dataURL, setUrl] = useState<string>('');
@@ -124,6 +124,48 @@ const Page = () => {
             type: 'application/json',
           });
           await uploadBytes(ref(pfp, 'result/' + type), uploadBlob);
+          toast.success('Result Uploaded!');
+          setLoadingIndexed(loadingIndex, false);
+          setFile(null);
+          fileRef.current?.reset();
+        } catch (err) {
+          console.error(err);
+          toast.error('Something went wrong!');
+          setFile(null);
+          fileRef.current?.reset();
+
+          setLoadingIndexed(loadingIndex, false);
+          return;
+        }
+      };
+    } else {
+      toast.error('There are no files!');
+    }
+  };
+
+  const uploadData = (loadingIndex: number) => {
+    if (file && file.length > 0) {
+      setLoadingIndexed(loadingIndex, true);
+      const reader = new FileReader();
+      reader.readAsArrayBuffer(file[0]);
+      reader.onload = async (e) => {
+        try {
+          console.log(e.target?.result);
+          const workBook = XLSX.read(e.target?.result, { type: 'binary' });
+          const json = XLSX.utils.sheet_to_json(workBook.Sheets[workBook.SheetNames[0]]);
+          const upJson: any[] = [];
+
+          for (let i = 0; i < json.length; i++) {
+            const userResult: any = json[i];
+            const userData = (await getDoc(doc(db, 'participants', userResult.uid))).data();
+            console.table(userResult);
+            console.log(userData);
+
+            await updateDoc(doc(db, 'participants', userResult.uid), {
+              ...userResult,
+            });
+          }
+
           toast.success('Result Uploaded!');
           setLoadingIndexed(loadingIndex, false);
           setFile(null);
@@ -250,6 +292,18 @@ const Page = () => {
                       <CgSpinner className="w-7 h-7 animate-spin text-white mx-auto" />
                     ) : (
                       'Upload Final Result'
+                    )}
+                  </button>
+                  <button
+                    disabled={loading[4]}
+                    className="hover:bg-primary_dark hover:text-white   flex-1 justify-center  transition-colors px-5 py-3 inline-flex focus:ring-2 focus:ring-secondary bg-primary text-white items-center gap-2 rounded-lg leading-[1.15] shadow-sm"
+                    onClick={() => uploadData(4)}
+                  >
+                    {' '}
+                    {loading[4] ? (
+                      <CgSpinner className="w-7 h-7 animate-spin text-white mx-auto" />
+                    ) : (
+                      'Upload Data'
                     )}
                   </button>
                 </div>

@@ -136,7 +136,7 @@ const Page = () => {
         <Image
           alt="login"
           className={'hidden object-cover lg:block w-1/2 rounded-xl m-5 order-1'}
-          src="/Images/reg_banner.png"
+          src="/Images/reg_banner.jpg"
           width={512}
           height={512}
         />

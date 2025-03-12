@@ -40,6 +40,9 @@ const Setter = () => {
             </div>
           ))}
         </div>
+        <div className="pt-2 mt-4 md:mt-5 text-center  text-black/50  2xl:px-8  flex flex-wrap gap-4 2xl:gap-8  items-start justify-center">
+          {setter.length <= 0 ? 'To Be Decided' : ''}
+        </div>
       </div>
     </section>
   );

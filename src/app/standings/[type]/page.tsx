@@ -59,13 +59,13 @@ const Page = ({ params }: { params: { type: string } }) => {
             className={` shadow-md sm:shadow-lg flex gap-2 basis-[calc(50%-0.25rem)] shrink-0 grow-0 sm:basis-auto items-center font-Nunito font-bold -gray-300 focus:outline-none focus:ring-4 focus:ring-gray-200 rounded-lg md:rounded-xl  text-sm md:text-base px-5 py-4 md:py-3 md:me-2 md:mb-2  transition-colors  ${
               type == 'preliminary'
                 ? 'bg-secondary hover:bg-primary hover:text-white  text-white shadow-lg'
-                : 'bg-white text-black hover:bg-green-100 hover:text-secondary'
+                : 'bg-white text-black hover:bg-bg-secondary_lightest hover:text-secondary'
             }`}
           >
             <FiUserCheck
               className={
                 'w-[1.125rem] h-[1.125rem] ' +
-                (type === 'preliminary' ? 'text-green-200' : 'text-secondary')
+                (type === 'preliminary' ? 'text-bg-secondary_light' : 'text-secondary')
               }
             />
             Preliminary
@@ -78,13 +78,13 @@ const Page = ({ params }: { params: { type: string } }) => {
               className={`shadow-md sm:shadow-lg font-Nunito basis-[calc(50%-0.25rem)] shrink-0 grow-0 sm:basis-auto flex gap-2 items-center font-bold -gray-300 focus:outline-none focus:ring-4 focus:ring-gray-200 rounded-lg md:rounded-xl  text-sm md:text-base px-5 py-4 md:py-3 md:me-2 md:mb-2  transition-colors  ${
                 type == 'final'
                   ? 'bg-secondary hover:bg-primary hover:text-white  text-white shadow-lg'
-                  : 'bg-white text-black hover:bg-green-100 hover:text-secondary'
+                  : 'bg-white text-black hover:bg-secondary_lightest hover:text-secondary'
               }`}
             >
               <GrTrophy
                 className={
                   'w-[1.125rem] h-[1.125rem] ' +
-                  (type === 'final' ? 'text-green-200' : 'text-secondary')
+                  (type === 'final' ? 'text-bg-secondary_light' : 'text-secondary')
                 }
               />
               Final

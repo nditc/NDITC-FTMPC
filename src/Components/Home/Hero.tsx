@@ -13,15 +13,30 @@ const Hero = () => {
             Welcome to
           </h1>
           <h1 className="tracking-wide mt-2 md:mt-0 lg:tracking-widest text-4xl md:text-5xl 2xl:text-7xl  font-medium text-center md:text-left text-black">
-            <span className="text-primary">FTMPC</span> 4.0
+            <span className="text-primary">FTMPC</span> 5.0
           </h1>
 
           <p className="mt-3 text-base 2xl:text-[1.375rem] md:max-w-[90%]  2xl:leading-8  break-words w-[85vw] md:w-fit text-center md:text-left Nunito">
             Dive headfirst into the code arena for{' '}
-            <span className="text-secondary font-bold">FREE!</span> NDITC&apos;s FTMPC 4.0 is your
+            <span className="text-secondary font-bold">FREE!</span> NDITC&apos;s FTMPC 5.0 is your
             chance to clash with fellow tech minds. This contest throws down coding challenges that
             will transform you into a programming warrior.
           </p>
+          <section className=" flex flex-col bg-primary mt-3 text-white px-5 py-2.5 rounded-xl">
+            <div className="container w-full flex items-center justify-between gap-6">
+              <p className="Bebas text-2xl lg:text-3xl">
+                <span className="text-secondary_lightest">Registration </span>
+
+                <span>Fee</span>
+              </p>
+              <p className="w-[2px] h-[40px] bg-white/80  "></p>
+              <p className="text-right text-xl lg:text-3xl font-bold">
+                <span className="text-secondary_lightest">
+                  200 <span className="text-white/80 text-lg lg:text-2xl">Tk</span>
+                </span>
+              </p>
+            </div>
+          </section>
           <img src="/Images/deadline.svg" alt="dealine" className="max-w-[350px] w-[90%] mt-3" />
           <a
             href="/register"
@@ -30,8 +45,9 @@ const Hero = () => {
             <span className="relative z-10">REGISTER NOW</span>
           </a>
         </div>
+
         <Image
-          src={'/Images/FTMPC-Banner.svg'}
+          src={'/Images/FTMPC-Banner.png'}
           alt={'Image'}
           className="relative w-[90%] xsm:w-[70%] my-[4vh] md:mb-0 md:w-[50%] max-w-[850px] md:max-h-[70vh] object-contain order-1 md:order-2"
           width={850}
@@ -39,6 +55,7 @@ const Hero = () => {
         />
         {/* <img src="/Images/bg.png" className="absolute bottom-[-4vh] right-0 -z-10" alt="" /> */}
       </section>
+
       <section className="w-screen h-fit pt-16 pb-16 object-cover  bg-top tech-bg  text-center md:text-lg">
         <div className="container leading-7">
           <h1 className="mx-auto mb-5 md:mb-8 ">

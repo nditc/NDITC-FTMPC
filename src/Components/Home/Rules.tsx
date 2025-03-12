@@ -13,8 +13,8 @@ const Rules = () => {
         <ul className="text-left flex flex-col gap-3 list-[circle]  marker:text-2xl pl-8 marker:text-primary">
           <li>
             {' '}
-            All students from schools and colleges (including HSC batch-2023) and corresponding
-            institutions such as polytechnic institutes (4th year and below) are eligible to
+            All students from schools and colleges (including HSC batch-2024) and corresponding
+            institutions such as polytechnic institutes (2nd year and below) are eligible to
             participate. Participants have to participate individually.{' '}
           </li>
           <li> The contest will follow the IOI format. </li>
@@ -44,6 +44,11 @@ const Rules = () => {
           <li> Participants have to participate in the contest using the custom handle. </li>
           <li> Custom handles will be given to participants via email. </li>
           <li>
+            {' '}
+            Participants have to provide screen recording of whole preliminary contest in order to
+            advance to national round..{' '}
+          </li>
+          <li>
             Contest will be hosted on{' '}
             <a className="text-primary " href="https://toph.co/">
               https://toph.co/
@@ -55,7 +60,7 @@ const Rules = () => {
             registered participants.
           </li>
         </ul>
-        <p className="mt-8 text-left bg-green-50 rounded-xl p-6">
+        <p className="mt-8 text-left bg-sky-50 rounded-xl p-6">
           <strong className="text-primary">⚠️ Plagiarism Issues:</strong> Since Preliminary will be
           an online contest, third-party codes that were written or available online before the
           start of the contest can be used, but it may lead to confusion if more than one

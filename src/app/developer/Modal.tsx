@@ -68,7 +68,7 @@ const Modal = ({
             </div>
           </div>
           <button
-            className="absolute top-5 left-5 p-3 bg-slate-50 rounded-full hover:bg-green-50  hover:fill-primary transition"
+            className="absolute top-5 left-5 p-3 bg-slate-50 rounded-full hover:bg-sky-50  hover:fill-primary transition"
             onClick={() => setModalState(null)}
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="w-4" viewBox="0 0 384 512">

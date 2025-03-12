@@ -209,16 +209,16 @@ const Navbar = () => {
                   onClick={() => {
                     setShowOptions(false);
                   }}
-                  href="/#faq"
+                  href="/archive"
                   className={
                     'block py-2 px-3 text-gray-900 rounded lg:hover:bg-transparent   lg:hover:text-secondary lg:p-0' +
                     ' ' +
-                    (Route === '/asasasasasassdafawreq'
+                    (Route === '/archive'
                       ? 'bg-primary text-white hover:bg-primary_dark  lg:bg-transparent  lg:text-secondary'
                       : 'lg:text-black hover:bg-gray-200 lg:bg-transparent')
                   }
                 >
-                  FAQ
+                  Archive
                 </Link>
               </li>
               {/* <li>
@@ -270,7 +270,7 @@ const Navbar = () => {
                       : 'lg:text-primary hover:bg-primary hover:text-white lg:bg-transparent')
                   }
                 >
-                  INIT 4.0
+                  INIT 5.0
                 </Link>
               </li>
             </ul>

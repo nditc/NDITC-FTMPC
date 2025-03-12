@@ -1,4 +1,16 @@
-const classes = ['6', '7', '8', '9', '10', 'SSC-24', '11', '12', 'HSC-23'];
+const classes = [
+  '6',
+  '7',
+  '8',
+  '9',
+  '10',
+  'SSC-25',
+  '11',
+  '12',
+  'HSC-24',
+  'POLYTECHNIC-1ST',
+  'POLYTECHNIC-2ND',
+];
 
 const regDataInit = {
   address: '',
@@ -6,8 +18,8 @@ const regDataInit = {
   codeforcesHandle: '',
   email: '',
   fbLink: '',
-  gurdianMobile: '',
-  gurdianName: '',
+  GuardianMobile: '',
+  GuardianName: '',
   imageUrl: '',
   institution: '',
   mobile: '',
@@ -16,6 +28,11 @@ const regDataInit = {
   tophHandle: '',
   tophPassword: '',
   selected: false,
+  paymentPhone: '',
+  transactionId: '',
+  refId: '',
+  paymentStatus: false,
+  recordingLink: '',
 };
 
 type regDataType = typeof regDataInit;

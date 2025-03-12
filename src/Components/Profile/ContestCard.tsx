@@ -81,7 +81,7 @@ const ContestCard = () => {
           <h1 className="text-xl text-secondary Nunito font-bold md:w-32">Preliminary</h1>
           <div
             className={
-              'py-2 px-4 flex md:text-lg  justify-between items-center text-green-500 bg-secondary_lighter gap-1 rounded-lg  font-bold '
+              'py-2 px-4 flex md:text-lg  justify-between items-center text-secondary bg-secondary_lighter gap-1 rounded-lg  font-bold '
             }
           >
             <span className=" font-medium">Not Published</span>
@@ -125,7 +125,7 @@ const ContestCard = () => {
           <h1 className="text-xl text-secondary Nunito font-bold md:w-32">Final</h1>
           <div
             className={
-              'py-2 px-4 flex md:text-lg  justify-between items-center text-green-500 bg-secondary_lighter gap-1 rounded-lg  font-bold '
+              'py-2 px-4 flex md:text-lg  justify-between items-center text-secondary bg-secondary_lighter gap-1 rounded-lg  font-bold '
             }
           >
             <span className=" font-medium">Not Published</span>

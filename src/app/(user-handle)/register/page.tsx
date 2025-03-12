@@ -108,13 +108,13 @@ const Page = () => {
   }, [Router]);
   return (
     <div className="w-screen shadow-lg  shadow-secondary mt-[81px] bg-image md:min-h-[calc(100vh_-_81px)] grid place-items-center">
-      <div className="container-login w-full bg-white sm:rounded-xl flex pt-3 pb-8 sm:py-0 sm:my-16">
+      <div className="container-login w-full bg-white sm:rounded-xl flex flex-col lg:flex-row pt-3 pb-8 sm:py-0 sm:my-16 overflow-hidden">
         {configLoading ? (
           <div className="grid place-items-center w-full h-[80vh]">
             <CgSpinner className="mx-auto w-16 h-16 animate-spin text-primary" />
           </div>
         ) : (
-          <form className="grid grid-cols-1 gap-5 w-full p-5 sm:p-12" onSubmit={handleSubmit}>
+          <form className="grid grid-cols-1 gap-5 flex-1 p-5 sm:p-12" onSubmit={handleSubmit}>
             <AiOutlineUserAdd className="w-12 h-12 text-primary" />
             <h1 className="text-4xl">
               <span className="text-primary">Registration</span> Form
@@ -175,24 +175,24 @@ const Page = () => {
                 type="text"
               />
               <Field
-                state={regData.gurdianName}
+                state={regData.GuardianName}
                 setValue={setValue}
-                name="gurdianName"
-                label="Gurdian Name"
+                name="GuardianName"
+                label="Guardian Name"
                 type="text"
               />
               <Field
-                state={regData.gurdianMobile}
+                state={regData.GuardianMobile}
                 setValue={setValue}
-                name="gurdianMobile"
-                label="Gurdian Mobile"
+                name="GuardianMobile"
+                label="Guardian Mobile"
                 type="tel"
               />
               <Field
                 state={regData.fbLink}
                 setValue={setValue}
-                name="fbLink"
-                label="Facebook Profile Link"
+                name="refId"
+                label="Reference Id"
                 type="text"
                 notRequired
               />
@@ -217,6 +217,45 @@ const Page = () => {
                 name="Confirm Password"
                 label="Confirm Password"
                 type="password"
+              />
+              <div className="md:col-span-2 my-4">
+                <h2 className="text-3xl flex gap-1">
+                  <img
+                    src="https://www.logo.wine/a/logo/BKash/BKash-Icon-Logo.wine.svg"
+                    className="w-9 h-9"
+                    alt=""
+                  ></img>
+                  <span className="text-primary">Payment</span> Info
+                </h2>
+                <ul className="list-[circle] marker:text-secondary list-inside mt-2">
+                  <li>
+                    At first send <span className="text-primary font-bold">BDT 200</span> to{' '}
+                    <span className="text-primary underline font-bold">01946821177</span> (bKash
+                    &quot;Send Money&quot;)
+                  </li>{' '}
+                  <li>Please use your email ID as the reference</li>
+                  <li>
+                    Then give us the number (from which you sent the money) and the transaction id.
+                  </li>{' '}
+                  <li>
+                    Do not forget to keep proof of the payment. Your payment will be verified after
+                    being checked by the admin.
+                  </li>
+                </ul>
+              </div>
+              <Field
+                state={regData.paymentPhone}
+                setValue={setValue}
+                name="paymentPhone"
+                label="Payment Number"
+                type="text"
+              />{' '}
+              <Field
+                state={regData.paymentPhone}
+                setValue={setValue}
+                name="paymentPhone"
+                label="Transaction Id"
+                type="text"
               />
             </div>
             <div className="justify-self-end w-full md:w-auto py-3 md:py-0">

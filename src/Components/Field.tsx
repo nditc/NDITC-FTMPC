@@ -9,14 +9,24 @@ type props = {
   setValue: (name: string, data: string | number) => void;
   notRequired?: boolean;
   editable?: boolean;
+  dontShowOptional?: boolean;
 };
 
-const Field = ({ name, label, type, state, setValue, notRequired, editable = true }: props) => {
+const Field = ({
+  name,
+  label,
+  type,
+  state,
+  setValue,
+  notRequired,
+  editable = true,
+  dontShowOptional,
+}: props) => {
   return (
     <div className="flex flex-col gap-1">
       <label className="text-gray-500 ml-2 font-medium disabled:text-gray-200" htmlFor={name}>
         {label}
-        {notRequired ? ' (Optional)' : ''}:
+        {notRequired && !dontShowOptional ? ' (Optional)' : ''}:
       </label>
       <input
         className="px-5 py-3 border-gray-200  disabled:bg-white disabled:text-gray-400 rounded-xl border focus:border-primary focus:outline-none"
