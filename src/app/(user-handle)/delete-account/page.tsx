@@ -10,7 +10,7 @@ import { deleteUser, signInWithEmailAndPassword } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import { CgArrowLeft, CgSpinner } from 'react-icons/cg';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
+
 import { doc, DocumentReference, deleteDoc } from 'firebase/firestore';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { deleteObject, ref } from 'firebase/storage';
@@ -100,7 +100,7 @@ const Page = () => {
             </div>
           </div>
         </form>
-        <Image
+        <img
           alt="login"
           className={'hidden lg:block w-1/2 object-cover rounded-xl m-5'}
           src="/Images/reg_banner.jpg"

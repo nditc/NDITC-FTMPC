@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import CurrentYear from '../CurrentYear';
 import { FaFacebook } from 'react-icons/fa';
@@ -14,7 +13,7 @@ const Footer = () => {
               A CLUB OF
             </div>
             <a href="https://ndc.edu.bd" target="_blank">
-              <Image
+              <img
                 src="/Images/NDC.png"
                 alt="Logo"
                 width={128}
@@ -88,7 +87,7 @@ const Footer = () => {
             A CLUB OF
           </div>
           <a href="https://ndc.edu.bd" target="_blank">
-            <Image
+            <img
               src="/Images/NDC.png"
               alt="Logo"
               width={128}

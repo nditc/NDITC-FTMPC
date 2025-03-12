@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import Image from 'next/image';
+
 import React, { useRef, useState } from 'react';
 import Modal from '@/Components/Modal';
 import Field from '../Field';
@@ -55,7 +55,7 @@ const ProfilePic = ({ imageUrl, setImage }: { imageUrl: any; setImage: (url: str
         <p className="absolute z-10 font-medium text-transparent  cursor-pointer select-none group-hover:text-white top-1/2 left-1/2 -translate-x-1/2  -translate-y-1/2">
           Click to Change
         </p>
-        <Image
+        <img
           className="rounded-full group-hover:brightness-50 transition-all cursor-pointer   min-w-[200px] max-w-[200px]  object-cover w-[200px] h-[200px]  aspect-square shadow-md  bg-white"
           src={imageUrl}
           alt="profile-img"

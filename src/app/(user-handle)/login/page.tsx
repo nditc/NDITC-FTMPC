@@ -10,7 +10,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import { CgLogIn, CgSpinner } from 'react-icons/cg';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
+
 import { FirebaseError } from 'firebase/app';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { update } from 'firebase/database';
@@ -127,7 +127,7 @@ const Page = () => {
             </>
           )}
         </form>
-        <Image
+        <img
           alt="login"
           className={'hidden lg:block w-1/2 rounded-xl object-cover m-5'}
           src="/Images/reg_banner.jpg"

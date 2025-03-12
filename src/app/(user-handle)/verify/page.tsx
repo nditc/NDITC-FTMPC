@@ -15,7 +15,7 @@ import {
 import { toast } from 'react-toastify';
 import { CgArrowLeft, CgArrowRight, CgSpinner } from 'react-icons/cg';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
+
 import { doc, DocumentReference, deleteDoc } from 'firebase/firestore';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
@@ -133,7 +133,7 @@ const Page = () => {
             </div>
           </div>
         </div>
-        <Image
+        <img
           alt="login"
           className={'hidden object-cover lg:block w-1/2 rounded-xl m-5 order-1'}
           src="/Images/reg_banner.jpg"

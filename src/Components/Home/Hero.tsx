@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { SlCalender } from 'react-icons/sl';
 
 const Hero = () => {
@@ -46,7 +45,7 @@ const Hero = () => {
           </a>
         </div>
 
-        <Image
+        <img
           src={'/Images/FTMPC-Banner.png'}
           alt={'Image'}
           className="relative w-[90%] xsm:w-[70%] my-[4vh] md:mb-0 md:w-[50%] max-w-[850px] md:max-h-[70vh] object-contain order-1 md:order-2"

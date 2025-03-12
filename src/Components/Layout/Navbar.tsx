@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
+
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { RxCross2 } from 'react-icons/rx';
@@ -67,7 +67,7 @@ const Navbar = () => {
             }}
             className="flex items-center  z-50 space-x-3 rtl:space-x-reverse"
           >
-            <Image
+            <img
               src="/Images/FTMPC.svg"
               className="h-12 max-w-[7.5rem] xsm:max-w-36 object-contain"
               alt="NDITC Logo"

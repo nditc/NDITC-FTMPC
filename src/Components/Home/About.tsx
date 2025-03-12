@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 const About = () => {
   return (
     <section className="w-screen bg-no-repeat bg-cover bg-bottom  relative my-auto" id="about">

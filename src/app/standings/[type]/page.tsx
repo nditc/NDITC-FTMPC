@@ -3,7 +3,7 @@ import { useConfig } from '@/config/config_db';
 import { pfp } from '@/config/firebase';
 import nthNumber from '@/util/nthNumber';
 import { getBlob, getBytes, getDownloadURL, ref } from 'firebase/storage';
-import Image from 'next/image';
+
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { BsCalendar2CheckFill, BsDownload, BsGraphUpArrow } from 'react-icons/bs';
@@ -126,7 +126,7 @@ const Page = ({ params }: { params: { type: string } }) => {
                       </span>
                     </td>
                     <td className="w-auto flex items-center gap-3">
-                      <Image
+                      <img
                         className="w-14 rounded-full h-14 shadow-sm object-cover"
                         src={data.imageUrl}
                         width={56}

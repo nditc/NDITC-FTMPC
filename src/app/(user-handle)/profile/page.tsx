@@ -7,7 +7,7 @@ import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import Image from 'next/image';
+
 import { MdLockReset } from 'react-icons/md';
 import { FaRegEdit, FaRegTrashAlt, FaTimes } from 'react-icons/fa';
 
