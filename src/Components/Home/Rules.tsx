@@ -17,6 +17,8 @@ const Rules = () => {
             institutions such as polytechnic institutes (2nd year and below) are eligible to
             participate. Participants have to participate individually.{' '}
           </li>
+          <li> Payment Information should be clear before contest. </li>
+
           <li> The contest will follow the IOI format. </li>
           <li>
             {' '}
@@ -61,12 +63,12 @@ const Rules = () => {
           </li>
         </ul>
         <p className="mt-8 text-left bg-sky-50 rounded-xl p-6">
-          <strong className="text-primary">⚠️ Plagiarism Issues:</strong> Since Preliminary will be
-          an online contest, third-party codes that were written or available online before the
-          start of the contest can be used, but it may lead to confusion if more than one
+          <strong className="text-primary">⚠️ Plagiarism or AI Issues:</strong> Since Preliminary
+          will be an online contest, third-party codes that were written or available online before
+          the start of the contest can be used, but it may lead to confusion if more than one
           participant uses the same template. In that case, the decision of the judges will be
           considered. Apart from that, if a person is caught cheating by providing/taking code from
-          others, then they will be DISQUALIFIED from the contest immediately.
+          others or AI, then they will be DISQUALIFIED from the contest immediately.
         </p>
       </div>
     </section>

@@ -18,8 +18,8 @@ const FAQS = [
     desc: 'Participants can use Python, C, or C++ programming languages to tackle challenges inspired by the International Olympiad in Informatics (IOI) format.',
   },
   {
-    title: 'What measures are in place to address plagiarism issues during the contest?',
-    desc: 'Participants can use Python, C, or C++ programming languages to tackle challenges inspired by the International Olympiad in Informatics (IOI) format.',
+    title: 'What measures are in place to address plagiarism/AI issues during the contest?',
+    desc: 'Participants must submit screen recordings of the preliminary contest for verification. Any cheating or misuse of AI will result in immediate disqualification, with judges having the final say on contested issues.',
   },
   {
     title: 'Do I need to bring laptop for Offline Round?',

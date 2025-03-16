@@ -16,10 +16,9 @@ const Hero = () => {
           </h1>
 
           <p className="mt-3 text-base 2xl:text-[1.375rem] md:max-w-[90%]  2xl:leading-8  break-words w-[85vw] md:w-fit text-center md:text-left Nunito">
-            Dive headfirst into the code arena for{' '}
-            <span className="text-secondary font-bold">FREE!</span> NDITC&apos;s FTMPC 5.0 is your
-            chance to clash with fellow tech minds. This contest throws down coding challenges that
-            will transform you into a programming warrior.
+            Dive headfirst into the code arena! NDITC&apos;s FTMPC 5.0 is your chance to clash with
+            fellow tech minds. This contest throws down coding challenges that will transform you
+            into a programming warrior.
           </p>
           <section className=" flex flex-col bg-primary mt-3 text-white px-5 py-2.5 rounded-xl">
             <div className="container w-full flex items-center justify-between gap-6">

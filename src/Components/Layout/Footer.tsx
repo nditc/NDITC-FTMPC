@@ -10,16 +10,10 @@ const Footer = () => {
         <div className="flex gap-3 md:gap-24 justify-between order-3 md:order-1">
           <div className="flex md:hidden flex-col items-center  order-2">
             <div className="text-white font-semibold font-ShareTechTown hover:underline text-center">
-              A CLUB OF
+              ORGANIZED BY
             </div>
-            <a href="https://ndc.edu.bd" target="_blank">
-              <img
-                src="/Images/NDC.png"
-                alt="Logo"
-                width={128}
-                height={128}
-                className="scale-75 md:scale-100"
-              />
+            <a href="https://nditc.net" target="_blank">
+              <img src="/Images/NDC.png" alt="Logo" width={300} className="scale-75 md:scale-100" />
             </a>
           </div>
           <div className="flex flex-col gap-3 ">
@@ -69,7 +63,7 @@ const Footer = () => {
               Developers
             </Link> */}
             <a
-              href="https://nditc.net/details/U2FsdGVkX1%2BAo1HnTjk4aPrXkCt9rh1%2BNX%2FDWCpvsejwdtAoSjewOeYdKkZbh6aGaCzc66CV12V3COPzTfJdiRVwQsKY9T7hTEK5uHR6K4odMR4G%2FHndw%2BsLnz%2FamA1HVEDOV9n%2FeVAQ7U3yvYJftX0vc455XIZ3msRakGeLRfcnSfCudDzNtNO2z%2BBV3BJ3Q%2FAiKPNaCas8xNySX8iKn2q6N6OfEw4tQeh7SlogJS4%3D/project/1687651200"
+              href="https://nditc.net/details/U2FsdGVkX1%2BAo1HnTjk4aPrXkCt9rh1%2BNX%2FDWCpvsejwdtAoSjewOeYdKkZbh6aGaCzc66CV12V3COPzTfJdiRVwQsKY9T7hTEK5uHR6K4odMR4G%2FHndw%2BsLnz%2FamA1HVEDOV9n%2FeVAQ7U3yvYJftX0vc455XIZ3msRakGeLRfcnSfCudDzNtNO2z%2BBV3BJ3Q%2FAiKPNaCas8xNySX8iKn2q6N6OfEw4tQeh7SlogJS4%3D/project/1687636000"
               className="text-zinc-500 dark:text-zinc-400 font-medium hover:underline cursor-pointer"
             >
               App
@@ -84,16 +78,10 @@ const Footer = () => {
         </div>
         <div className="md:flex hidden flex-col items-center gap-3 order-2">
           <div className="text-white font-semibold font-ShareTechTown hover:underline text-center">
-            A CLUB OF
+            ORGANIZED BY
           </div>
-          <a href="https://ndc.edu.bd" target="_blank">
-            <img
-              src="/Images/NDC.png"
-              alt="Logo"
-              width={128}
-              height={128}
-              className="scale-75 md:scale-100"
-            />
+          <a href="https://nditc.net" target="_blank">
+            <img src="/Images/NDC.png" alt="Logo" width={360} className="scale-75 md:scale-100" />
           </a>
         </div>
         <div className="flex flex-col gap-3 items-start order-1 md:order-3">
