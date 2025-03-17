@@ -167,7 +167,7 @@ const EditData = ({ userData, setUserData }: props) => {
                 ></img>
                 <span className="text-primary">Payment</span> Info
               </h2>
-              <div
+              {/* <div
                 className={
                   'maxw-64 md:max-w-64 py-2 px-4 flex md:text-lg  items-center text-white gap-1 rounded-lg  font-bold shadow-sm ' +
                   (userData.paymentStatus ? 'bg-secondary' : 'bg-rose-500')
@@ -184,7 +184,7 @@ const EditData = ({ userData, setUserData }: props) => {
                     {'Verification Pending'}
                   </>
                 )}
-              </div>
+              </div> */}
             </div>
             <Field
               state={editUserData.paymentPhone}

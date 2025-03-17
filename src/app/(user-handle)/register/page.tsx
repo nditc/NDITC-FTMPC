@@ -230,8 +230,8 @@ const Page = () => {
                 <ul className="list-[circle] marker:text-secondary list-inside mt-2">
                   <li>
                     At first send <span className="text-primary font-bold">BDT 200</span> to{' '}
-                    <span className="text-primary underline font-bold">TBD</span> (bKash &quot;Send
-                    Money&quot;)
+                    <span className="text-primary underline font-bold">01827894812</span> (bKash
+                    &quot;Send Money&quot;)
                   </li>{' '}
                   <li>Please use your email ID as the reference</li>
                   <li>
