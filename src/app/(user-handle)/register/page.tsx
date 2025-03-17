@@ -189,7 +189,7 @@ const Page = () => {
                 type="tel"
               />
               <Field
-                state={regData.fbLink}
+                state={regData.refId}
                 setValue={setValue}
                 name="refId"
                 label="Reference Id"
@@ -251,9 +251,9 @@ const Page = () => {
                 type="text"
               />{' '}
               <Field
-                state={regData.paymentPhone}
+                state={regData.transactionId}
                 setValue={setValue}
-                name="paymentPhone"
+                name="transactionId"
                 label="Transaction Id"
                 type="text"
               />
