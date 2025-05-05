@@ -31,6 +31,12 @@ const ArchiveData: archive[] = [
     practise: 'https://toph.co/contests/training/em3dqhq',
     problemSet: '',
   },
+  {
+    ver: '5.0',
+    year: '2025-Preliminary',
+    practise: 'https://toph.co/c/father-timm-memorial-contest-5-0-preliminary',
+    problemSet: '',
+  },
 ];
 
-export default ArchiveData;
+export default ArchiveData.reverse();

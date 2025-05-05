@@ -12,7 +12,7 @@ type setter = {
   dept?: string | null;
 };
 
-const x: setter[] = [];
+// const x: setter[] = [];
 
 // const x: setter[] = [
 //   {
@@ -73,4 +73,70 @@ const x: setter[] = [];
 //   },
 // ];
 
+const x: setter[] = [
+  {
+    name: 'Alve Rahman',
+    image_url: '/Images/setters/AR.jpg',
+    post: 'CSE',
+    dept: 'SUST',
+    profile_url: [],
+  },
+  {
+    name: 'Arman Ferdous',
+    image_url: '/Images/setters/AF.jpg',
+    post: 'CSE',
+    dept: 'Brac University',
+    profile_url: [],
+  },
+  {
+    name: 'Rubaiyat E Zaman',
+    image_url: '/Images/setters/REZ.jpg',
+    post: 'CSE',
+    dept: 'BUET',
+    profile_url: [],
+  },
+  {
+    name: 'Ahnaf Shahriar Asif',
+    image_url: '/Images/setters/ASA.jpg',
+    post: 'CSE',
+    dept: 'Brac University',
+    profile_url: [],
+  },
+  {
+    name: 'Sk. Ashrafuzzaman Nafees',
+    image_url: '/Images/setters/SAN.jpg',
+    post: 'CSE',
+    dept: 'BUET',
+    profile_url: [],
+  },
+  {
+    name: 'Shafin Alam',
+    image_url: '/Images/setters/SA.jpg',
+    post: 'CSE',
+    dept: 'Brac University',
+    profile_url: [],
+  },
+  {
+    name: 'Wali E Zaman',
+    image_url: '/Images/setters/WEZ.jpg',
+    post: 'Organizer',
+    dept: "NDC '25",
+    profile_url: [],
+  },
+  {
+    name: 'Kazi Nadid Hossain',
+    image_url: '/Images/setters/KNH.jpg',
+    post: 'Organizer',
+    dept: "NDC '25",
+    profile_url: [],
+  },
+
+  {
+    name: 'HRM Rafsan Amin',
+    image_url: '/Images/setters/HRA.jpg',
+    post: 'Organizer',
+    dept: "NDC '25",
+    profile_url: [],
+  },
+];
 export default x;
