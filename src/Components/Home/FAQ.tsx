@@ -7,7 +7,7 @@ const FAQS = [
   {
     title:
       "What is FTMPC 5.0, and why is the contest named in Father Richard William Timm's honor?",
-    desc: 'FTMPC 5.0 stands for the Father Timm Memorial Programming Contest, which is the fourth installment of this prestigious event. The contest is named in honor of Father Richard William Timm, a notable figure known for his contributions to academia, humanitarianism, and biodiversity exploration. The contest aims to celebrate his enduring influence and legacy in these realms.',
+    desc: 'FTMPC 5.0 stands for the Father Timm Memorial Programming Contest, which is the fifth installment of this prestigious event. The contest is named in honor of Father Richard William Timm, a notable figure known for his contributions to academia, humanitarianism, and biodiversity exploration. The contest aims to celebrate his enduring influence and legacy in these realms.',
   },
   {
     title: 'What educational backgrounds are eligible to participate in FTMPC 5.0?',

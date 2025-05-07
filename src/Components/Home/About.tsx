@@ -19,7 +19,7 @@ const About = () => {
             <div className="flex-1 pb-5 mt-3">
               <p className="flex-1">
                 Embarking on the journey of knowledge and innovation, Notre Dame Information
-                Technology Club proudly presents the fourth installment of the prestigious Father
+                Technology Club proudly presents the fifth installment of the prestigious Father
                 Timm Memorial Programming Contest (FTMPC 5.0). Named in honour of the illustrious
                 Father Richard William Timm, a luminary figure whose legacy spans the realms of
                 academia, humanitarianism, and biodiversity exploration, this programming contest
