@@ -2,16 +2,17 @@
 import Announcements from '@/Components/Admin/AdminAnnouncements';
 import EditConfig from '@/Components/Admin/EditConfig';
 import Error from '@/Components/Error';
-import { auth, db, pfp } from '@/config/firebase';
+import { auth, db } from '@/config/firebase';
+import { uploadFileToCloudinary } from '@/util/uploadFileToCloudinary';
 import {
-  collection,
-  doc,
   getDoc,
   getDocs,
   query,
   setDoc,
   updateDoc,
   where,
+  collection,
+  doc,
 } from 'firebase/firestore';
 import { ref, uploadBytes } from 'firebase/storage';
 import { useRouter } from 'next/navigation';
@@ -22,6 +23,56 @@ import { CgSpinner } from 'react-icons/cg';
 import { toast } from 'react-toastify';
 import * as XLSX from 'xlsx';
 
+const ALL_FIELDS = [
+  'uid',
+  'createdAt',
+  'name',
+  'email',
+  'institution',
+  'class',
+  'mobile',
+  'address',
+  'GuardianName',
+  'GuardianMobile',
+  'fbLink',
+  'codeforcesHandle',
+  'tophHandle',
+  'tophPassword',
+  'tShirtSize',
+  'paymentPhone',
+  'transactionId',
+  'paymentStatus',
+  'selected',
+  'verified',
+  'imageUrl',
+  'recordingLink',
+];
+
+const FIELD_MAP: Record<string, string> = {
+  uid: 'User ID',
+  createdAt: 'Created At',
+  name: 'Name',
+  email: 'Email',
+  institution: 'Institution',
+  class: 'Class',
+  mobile: 'Mobile',
+  address: 'Address',
+  GuardianName: 'Guardian Name',
+  GuardianMobile: 'Guardian Mobile',
+  fbLink: 'Facebook Link',
+  codeforcesHandle: 'Codeforces Handle',
+  tophHandle: 'Toph Handle',
+  tophPassword: 'Toph Password',
+  tShirtSize: 'T-Shirt Size',
+  paymentPhone: 'Payment Phone',
+  transactionId: 'Transaction ID',
+  paymentStatus: 'Payment Status',
+  selected: 'Selected',
+  verified: 'Verified',
+  imageUrl: 'Image URL',
+  recordingLink: 'Recording Link',
+};
+
 const Page = () => {
   const [adminAuth, setAdminAuth] = useState<boolean>(false);
   const [user] = useAuthState(auth);
@@ -31,6 +82,7 @@ const Page = () => {
   const downloadRef = useRef<HTMLAnchorElement>(null);
   const fileRef = useRef<HTMLFormElement>(null);
   const [dataURL, setUrl] = useState<string>('');
+  const [selectedFields, setSelectedFields] = useState<string[]>(ALL_FIELDS);
   const Router = useRouter();
 
   const setLoadingIndexed = (index: number, state: boolean) => {
@@ -59,7 +111,7 @@ const Page = () => {
             );
         x.forEach((doc) => {
           const temp = doc.data();
-          const createdAt = new Date(temp?.timestamp?.seconds * 1000).toString();
+          const createdAt = new Date(temp?.timestamp?.seconds * 1000).toLocaleString();
           if (temp.timestamp) {
             delete temp.timestamp;
           }
@@ -70,8 +122,22 @@ const Page = () => {
           });
         });
 
+        const filteredData = data.map((item: any) => {
+          const filteredItem: any = {};
+          selectedFields.forEach((field) => {
+            if (item.hasOwnProperty(field)) {
+              filteredItem[FIELD_MAP[field] || field] = item[field];
+            } else if (field === 'uid') {
+              filteredItem[FIELD_MAP[field]] = item.uid;
+            } else if (field === 'createdAt') {
+              filteredItem[FIELD_MAP[field]] = item.createdAt;
+            }
+          });
+          return filteredItem;
+        });
+
         const workBook = XLSX.utils.book_new();
-        const xlsx = XLSX.utils.json_to_sheet(data);
+        const xlsx = XLSX.utils.json_to_sheet(filteredData);
         XLSX.utils.book_append_sheet(workBook, xlsx, 'All Participants');
 
         XLSX.writeFile(workBook, 'Participants.xlsx');
@@ -123,8 +189,11 @@ const Page = () => {
           const uploadBlob = new Blob([JSON.stringify(upJson)], {
             type: 'application/json',
           });
-          await uploadBytes(ref(pfp, 'result/' + type), uploadBlob);
-          toast.success('Result Uploaded!');
+          const jsonFile = new File([uploadBlob], `${type}_result.json`, {
+            type: 'application/json',
+          });
+          await uploadFileToCloudinary(jsonFile, `result/${type}.json`);
+          toast.success('Result JSON Uploaded to Cloudinary!');
           setLoadingIndexed(loadingIndex, false);
           setFile(null);
           fileRef.current?.reset();
@@ -249,6 +318,47 @@ const Page = () => {
                       'All Selected User Data'
                     )}
                   </button>
+                </div>
+              </div>
+
+              <div className="w-full mt-4 border-t pt-4">
+                <div className="flex justify-between items-center mb-2">
+                  <h2 className="text-xl font-semibold">Select Fields to Include in Excel:</h2>
+                  <div className="flex gap-4">
+                    <button
+                      className="text-primary text-sm font-medium hover:underline"
+                      onClick={() => setSelectedFields(ALL_FIELDS)}
+                    >
+                      Select All
+                    </button>
+                    <button
+                      className="text-primary text-sm font-medium hover:underline"
+                      onClick={() => setSelectedFields([])}
+                    >
+                      Deselect All
+                    </button>
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-2 mt-4">
+                  {ALL_FIELDS.map((field) => (
+                    <label key={field} className="flex items-center gap-2 cursor-pointer group">
+                      <input
+                        type="checkbox"
+                        checked={selectedFields.includes(field)}
+                        onChange={() => {
+                          if (selectedFields.includes(field)) {
+                            setSelectedFields(selectedFields.filter((f) => f !== field));
+                          } else {
+                            setSelectedFields([...selectedFields, field]);
+                          }
+                        }}
+                        className="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary accent-primary"
+                      />
+                      <span className="text-sm text-gray-700 group-hover:text-primary transition-colors">
+                        {FIELD_MAP[field] || field}
+                      </span>
+                    </label>
+                  ))}
                 </div>
               </div>
             </div>

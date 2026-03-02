@@ -1,5 +1,5 @@
 import { FaC, FaPython } from 'react-icons/fa6';
-import { SiC, SiCplusplus, SiPython } from 'react-icons/si';
+import { SiAdobeacrobatreader, SiC, SiCplusplus, SiPython } from 'react-icons/si';
 
 const Rules = () => {
   return (
@@ -13,13 +13,13 @@ const Rules = () => {
         <ul className="text-left flex flex-col gap-3 list-[circle]  marker:text-2xl pl-8 marker:text-primary">
           <li>
             {' '}
-            All students from schools and colleges (including HSC batch-2024) and corresponding
+            All students from schools and colleges (including HSC batch-2025) and corresponding
             institutions such as polytechnic institutes (2nd year and below) are eligible to
             participate. Participants have to participate individually.{' '}
           </li>
           <li> Payment Information should be clear before contest. </li>
 
-          <li> The contest will follow the IOI format. </li>
+          <li> The contest will follow the IOI format. (Subtasks Included) </li>
           <li>
             {' '}
             Participants can use{' '}
@@ -39,12 +39,14 @@ const Rules = () => {
             programming language.{' '}
           </li>
           <li> The preliminary contest will last for 3 hours. </li>
-          <li>
-            {' '}
-            Participants selected for the Offline Contest must bring their laptops with them.{' '}
-          </li>
+
           <li> Participants have to participate in the contest using the custom handle. </li>
           <li> Custom handles will be given to participants via email. </li>
+          <li>
+            {' '}
+            Participants have to join the meeting link provided in email and show face throughout
+            the contest there. Detailed protocol is given in the pdf below.{' '}
+          </li>
           <li>
             {' '}
             Participants have to provide screen recording of whole preliminary contest in order to
@@ -61,9 +63,26 @@ const Rules = () => {
             Before one day of the Preliminary contest, Toph.co login credentials will be sent to
             registered participants.
           </li>
+          <li>
+            {' '}
+            Participants selected for the <b>Offline Contest</b> must bring their laptops with
+            them.{' '}
+          </li>
         </ul>
         <p className="mt-8 text-left bg-sky-50 rounded-xl p-6">
-          <strong className="text-primary">⚠️ Plagiarism or AI Issues:</strong> Since Preliminary
+          <strong className="text-primary">
+            {' '}
+            <SiAdobeacrobatreader className="inline mr-2 m-0 text-primary" />
+            Detailed Rulebook PDF:
+          </strong>
+          &nbsp; &nbsp;
+          {/* Please Update the rulebook pdf as per direction */}
+          <a href="/ftmpc_6_rulebook.pdf" className="underline hover:text-secondary" download>
+            Click to Download
+          </a>
+        </p>
+        <p className="mt-8 text-left bg-red-50 rounded-xl p-6">
+          <strong className="text-red-600">⚠️ Plagiarism or AI Issues:</strong> Since Preliminary
           will be an online contest, third-party codes that were written or available online before
           the start of the contest can be used, but it may lead to confusion if more than one
           participant uses the same template. In that case, the decision of the judges will be

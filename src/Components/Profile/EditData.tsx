@@ -3,7 +3,7 @@ import { FaRegEdit, FaRegTrashAlt, FaTimes } from 'react-icons/fa';
 import Field from '@/Components/Field';
 import Select from '@/Components/Select';
 import { FiUser } from 'react-icons/fi';
-import { classes, regDataType } from '@/config/registerData';
+import { classes, regDataType, tShirtSize } from '@/config/registerData';
 import { LiaTimesSolid } from 'react-icons/lia';
 import { CgSpinner } from 'react-icons/cg';
 import { doc, updateDoc } from 'firebase/firestore';
@@ -140,14 +140,13 @@ const EditData = ({ userData, setUserData }: props) => {
               type="tel"
               editable={editin}
             />
-            <Field
-              state={editUserData.refId}
+            <Select
+              selected={editUserData.tShirtSize}
+              values={tShirtSize}
               setValue={setValue}
-              name="refId"
-              label="Reference Id:"
-              type="text"
+              name="tShirtSize"
+              label="T-Shirt Size"
               editable={editin}
-              notRequired
             />
             <Field
               state={editUserData.codeforcesHandle}

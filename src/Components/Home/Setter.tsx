@@ -26,9 +26,9 @@ const Setter = () => {
           Hats off to all the brilliant setters who craft mind-bending problems, keeping us hooked
           and our coding skills razor-sharp!
         </p>
-        <div className="pt-2 mt-4 md:mt-5  2xl:px-8  flex flex-wrap gap-4 2xl:gap-8  items-start justify-start">
+        <div className="pt-2 mt-4 md:mt-5  2xl:px-8  flex flex-wrap gap-4 2xl:gap-8  items-center justify-center">
           {setter.map(({ name, post, image_url, dept }, index) => (
-            <div className="w-[310px] flex-[310px]" key={index}>
+            <div className="w-[310px] xl:w-[400px]  self-center" key={index}>
               <Member
                 hasClickHandler={false}
                 img={image_url}

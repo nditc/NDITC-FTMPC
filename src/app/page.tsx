@@ -7,15 +7,18 @@ import Rules from '@/Components/Home/Rules';
 import Contact from '@/Components/Contact';
 import FAQ from '@/Components/Home/FAQ';
 import DeveloperLink from '@/Components/DeveloperLink';
+import Timeline from '@/Components/Home/Timeline';
+import Prize from '@/Components/Home/Prize';
 
 const Home = () => {
   return (
     <>
       <main className="flex container mx-auto flex-col items-center justify-center">
         <Hero />
+        <Timeline />
         <About />
+        <Prize />
         <Rules />
-
         <Setter />
         <FAQ />
         <Contact />

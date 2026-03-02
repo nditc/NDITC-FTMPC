@@ -3,7 +3,7 @@
 import Field from '@/Components/Field';
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { auth, db, pfp } from '@/config/firebase';
+import { auth, db } from '@/config/firebase';
 
 import { deleteUser, signInWithEmailAndPassword } from 'firebase/auth';
 
@@ -13,7 +13,7 @@ import { useRouter } from 'next/navigation';
 
 import { doc, DocumentReference, deleteDoc } from 'firebase/firestore';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { deleteObject, ref } from 'firebase/storage';
+
 
 const Page = () => {
   const [password, setPassword] = useState<string>('');
@@ -29,7 +29,7 @@ const Page = () => {
           const UserInfo = UserCred.user;
           await deleteUser(UserInfo);
           await deleteDoc(doc(db, 'participants', UserInfo.uid));
-          await deleteObject(ref(pfp, 'pfp/' + UserInfo.uid));
+          // Removed Firebase Storage deletion: await deleteObject(ref(pfp, 'pfp/' + UserInfo.uid));
           toast.success(`User Deleted!.`);
           setLoading(false);
           Router.push('/');
@@ -39,8 +39,6 @@ const Page = () => {
           switch (error.code) {
             case 'auth/invalid-credential':
               toast.error(`Invalid password.`);
-              break;
-            case 'storage/object-not-found':
               break;
             default:
               console.error(error.message);

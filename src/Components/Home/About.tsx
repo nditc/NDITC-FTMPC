@@ -5,7 +5,7 @@ const About = () => {
         {' '}
         <section className="flex flex-col container items-center pt-14 pb-12 my-auto">
           <h1 className="text-[2.55rem] md:text-5xl text-white ">
-            ABOUT <span className="text-secondary">FTMPC 5.0</span>
+            ABOUT <span className="text-secondary">FTMPC 6.0</span>
           </h1>
 
           <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 text-[#ffffffbe] text-base xl:text-lg Nunito mt-3  pb-2 items-stretch">
@@ -20,11 +20,11 @@ const About = () => {
               <p className="flex-1">
                 Embarking on the journey of knowledge and innovation, Notre Dame Information
                 Technology Club proudly presents the fifth installment of the prestigious Father
-                Timm Memorial Programming Contest (FTMPC 5.0). Named in honour of the illustrious
+                Timm Memorial Programming Contest (FTMPC 6.0). Named in honour of the illustrious
                 Father Richard William Timm, a luminary figure whose legacy spans the realms of
                 academia, humanitarianism, and biodiversity exploration, this programming contest
                 stands as a testament to his enduring influence. <br></br>
-                <br></br> FTMPC 5.0 is not merely a competition but a celebration of intellect and
+                <br></br> FTMPC 6.0 is not merely a competition but a celebration of intellect and
                 creativity, aimed at nurturing the next generation of tech-savvy minds. With a nod
                 to the timeless wisdom of Steve Jobs, we believe that coding transcends the
                 boundaries of programming languages; it instills in individuals a profound ability

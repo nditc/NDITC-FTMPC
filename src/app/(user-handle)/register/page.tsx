@@ -2,7 +2,7 @@
 
 import Field from '@/Components/Field';
 import React, { useEffect, useReducer, useState } from 'react';
-import { regDataInit, regDataType, classes } from '@/config/registerData';
+import { regDataInit, regDataType, classes, tShirtSize } from '@/config/registerData';
 import Select from '@/Components/Select';
 import { auth, db } from '@/config/firebase';
 import { doc, serverTimestamp, setDoc } from 'firebase/firestore';
@@ -188,13 +188,12 @@ const Page = () => {
                 label="Guardian Mobile"
                 type="tel"
               />
-              <Field
-                state={regData.refId}
+              <Select
+                selected={regData.tShirtSize}
+                values={tShirtSize}
                 setValue={setValue}
-                name="refId"
-                label="Reference Id"
-                type="text"
-                notRequired
+                name="tShirtSize"
+                label="T-Shirt Size"
               />
               <Field
                 state={regData.codeforcesHandle}
@@ -229,7 +228,7 @@ const Page = () => {
                 </h2>
                 <ul className="list-[circle] marker:text-secondary list-inside mt-2">
                   <li>
-                    At first send <span className="text-primary font-bold">BDT 200</span> to{' '}
+                    At first send <span className="text-primary font-bold">BDT 150</span> to{' '}
                     <span className="text-primary underline font-bold">01827894812</span> (bKash
                     &quot;Send Money&quot;)
                   </li>{' '}

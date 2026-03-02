@@ -6,12 +6,12 @@ import { BsQuestionCircle } from 'react-icons/bs';
 const FAQS = [
   {
     title:
-      "What is FTMPC 5.0, and why is the contest named in Father Richard William Timm's honor?",
-    desc: 'FTMPC 5.0 stands for the Father Timm Memorial Programming Contest, which is the fifth installment of this prestigious event. The contest is named in honor of Father Richard William Timm, a notable figure known for his contributions to academia, humanitarianism, and biodiversity exploration. The contest aims to celebrate his enduring influence and legacy in these realms.',
+      "What is FTMPC 6.0, and why is the contest named in Father Richard William Timm's honor?",
+    desc: 'FTMPC 6.0 stands for the Father Timm Memorial Programming Contest, which is the fifth installment of this prestigious event. The contest is named in honor of Father Richard William Timm, a notable figure known for his contributions to academia, humanitarianism, and biodiversity exploration. The contest aims to celebrate his enduring influence and legacy in these realms.',
   },
   {
-    title: 'What educational backgrounds are eligible to participate in FTMPC 5.0?',
-    desc: 'FTMPC 5.0 is open to students from various educational backgrounds, including schools, colleges (including HSC batch-2024), and corresponding institutions such as polytechnic institutes (2nd year and below).',
+    title: 'What educational backgrounds are eligible to participate in FTMPC 6.0?',
+    desc: 'FTMPC 6.0 is open to students from various educational backgrounds, including schools, colleges (including HSC batch-2025), and corresponding institutions such as polytechnic institutes (2nd year and below).',
   },
   {
     title: 'What programming languages can participants use in the contest?',
@@ -50,8 +50,8 @@ const FAQ = () => {
                   index === 0
                     ? 'rounded-t-xl'
                     : index === FAQS.length - 1 && openIndex !== index + 1
-                    ? 'rounded-b-xl'
-                    : ''
+                      ? 'rounded-b-xl'
+                      : ''
                 } focus:ring-4 focus:ring-gray-200    hover:bg-gray-100  gap-3`}
               >
                 <span>{data.title}</span>

@@ -30,11 +30,11 @@ const Member = ({
         setHover(false);
       }}
       className={
-        'text-center flex md:flex-col place-items-center md:gap-2 gap-4 hover:scale-105 transition-all ' +
+        'text-center flex  place-items-center md:gap-2 gap-4 hover:scale-105 transition-all ' +
         (hasClickHandler ? 'cursor-pointer' : 'saa')
       }
     >
-      <div className="w-full grid place-items-center max-w-[120px] md:max-w-[280px]">
+      <div className="w-full grid place-items-center max-w-[160px] xl:max-w-[180px] ">
         <span
           className={
             'absolute z-10 font-semibold font-Bebas text-white transition-opacity opacity-0' +
@@ -45,7 +45,7 @@ const Member = ({
           {hoverText}
         </span>
         <img
-          className={`rounded-full max-w-[120px] md:max-w-[280px] w-full transition-all aspect-square object-cover ${
+          className={`rounded-full max-w-[140px] xl:max-w-[180px] w-full transition-all aspect-square object-cover ${
             hasClickHandler && hover
               ? 'brightness-50 object-center'
               : `${imgInCenter ? '' : 'object-top'}`
@@ -56,7 +56,7 @@ const Member = ({
           alt=""
         ></img>
       </div>
-      <div className="text-left md:text-center">
+      <div className="text-left ">
         <h3 className="text-2xl">{name}</h3>
         <p className="text-primary font-bold">{designation}</p>
         <p>{department}</p>

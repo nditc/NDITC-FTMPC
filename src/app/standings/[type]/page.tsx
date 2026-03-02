@@ -1,8 +1,6 @@
 'use client';
 import { useConfig } from '@/config/config_db';
-import { pfp } from '@/config/firebase';
 import nthNumber from '@/util/nthNumber';
-import { getBlob, getBytes, getDownloadURL, ref } from 'firebase/storage';
 
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
@@ -25,10 +23,27 @@ const Page = ({ params }: { params: { type: string } }) => {
       (type === 'final' && config?.final_result_published) ||
       (type === 'preliminary' && config?.pre_result_published)
     ) {
-      getBytes(ref(pfp, 'result/' + (type === 'preliminary' ? 'pre_result' : 'final_result')))
+      fetch(
+        `https://res.cloudinary.com/db0w7ngxm/raw/upload/v1771256423/result/${
+          type === 'preliminary' ? 'pre_result' : 'final_result'
+        }.json`
+      )
+        .then((res) => res.json())
         .then((data) => {
-          const json = JSON.parse(new TextDecoder('utf-8').decode(new Uint8Array(data)));
-          setResult(json);
+          if (Array.isArray(data)) {
+            data.sort((datumA, datumB) => {
+              let scoreA = !datumA.score ? 0 : datumA.score;
+              let scoreB = !datumB.score ? 0 : datumB.score;
+              let penaltyA = !datumA.penalty ? 0 : datumA.penalty;
+              let penaltyB = !datumB.penalty ? 0 : datumB.penalty;
+
+              if (scoreA == scoreB) {
+                return -penaltyA + penaltyB;
+              }
+              return -scoreA + scoreB;
+            });
+          }
+          setResult(data);
         })
         .catch((err) => {
           setResult(null);
@@ -48,7 +63,7 @@ const Page = ({ params }: { params: { type: string } }) => {
       </h1>
       <p className="container mt-4 md:mt-8">
         {type === 'preliminary'
-          ? 'Only Selected Students are listed here!'
+          ? 'Only  Students selected for National Round are listed here!'
           : 'Final result have been published'}
       </p>
       {config?.pre_result_published ? (
@@ -116,10 +131,10 @@ const Page = ({ params }: { params: { type: string } }) => {
                           index === 0
                             ? 'text-white bg-rose-500 shadow'
                             : index === 1
-                            ? 'text-white bg-yellow-500 shadow'
-                            : index === 2
-                            ? 'text-white bg-secondary shadow'
-                            : 'bg-gray-100'
+                              ? 'text-white bg-yellow-500 shadow'
+                              : index === 2
+                                ? 'text-white bg-secondary shadow'
+                                : 'bg-gray-100'
                         } rounded`}
                       >
                         {nthNumber(index + 1)}

@@ -4,8 +4,8 @@ import React, { useRef, useState } from 'react';
 import Modal from '@/Components/Modal';
 import Field from '../Field';
 import { CgSpinner } from 'react-icons/cg';
-import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
-import { auth, db, pfp } from '@/config/firebase';
+import { uploadFileToCloudinary } from '@/util/uploadFileToCloudinary';
+import { auth, db } from '@/config/firebase'; // Keep auth and db for Firestore update
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { doc, updateDoc } from 'firebase/firestore';
 import { LiaTimesSolid } from 'react-icons/lia';
@@ -19,27 +19,22 @@ const ProfilePic = ({ imageUrl, setImage }: { imageUrl: any; setImage: (url: str
   const [user] = useAuthState(auth);
 
   const FileRef = useRef<HTMLInputElement>(null);
-  const changePfp = () => {
+  const changePfp = async () => {
     if (user?.uid && newImage) {
       setLoading(true);
-      const storeRef = ref(pfp, 'pfp/' + user.uid);
-      uploadBytes(storeRef, newImage[0])
-        .then(async (snapshot) => {
-          const url = await getDownloadURL(storeRef);
-          await updateDoc(doc(db, 'participants', user.uid), { imageUrl: url });
-          setImage(url);
-          setLoading(false);
-          setNewImage(null);
-          setChangeImage(false);
-          toast.success('Photo Updated!');
-        })
-        .catch((error) => {
-          console.dir(error);
-
-          toast.error(error.message.replaceAll('Firebase: ', ''));
-
-          setLoading(false);
-        });
+      try {
+        const url = await uploadFileToCloudinary(newImage[0], 'pfp/' + user.uid); // Use user.uid as filename
+        await updateDoc(doc(db, 'participants', user.uid), { imageUrl: url });
+        setImage(url);
+        toast.success('Photo Updated!');
+      } catch (error: any) {
+        console.dir(error);
+        toast.error(error.message || 'Failed to update photo.');
+      } finally {
+        setLoading(false);
+        setNewImage(null);
+        setChangeImage(false);
+      }
     } else {
       toast.error('Something Happenned');
     }

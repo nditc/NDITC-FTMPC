@@ -1,16 +1,20 @@
 const classes = [
+  '4',
+  '5',
   '6',
   '7',
   '8',
   '9',
   '10',
-  'SSC-25',
+  'SSC-26',
   '11',
   '12',
-  'HSC-24',
+  'HSC-25',
   'POLYTECHNIC-1ST',
   'POLYTECHNIC-2ND',
 ];
+
+const tShirtSize = ['S', 'M', 'L', 'XL', 'XXL'];
 
 const regDataInit = {
   address: '',
@@ -30,7 +34,7 @@ const regDataInit = {
   selected: false,
   paymentPhone: '',
   transactionId: '',
-  refId: '',
+  tShirtSize: '',
   paymentStatus: false,
   recordingLink: '',
 };
@@ -39,5 +43,5 @@ type regDataType = typeof regDataInit;
 
 // const registratin
 
-export { regDataInit, classes };
+export { regDataInit, classes, tShirtSize };
 export type { regDataType };

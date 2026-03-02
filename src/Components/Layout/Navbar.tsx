@@ -129,7 +129,7 @@ const Navbar = () => {
             style={{
               transformOrigin: 'top',
             }}
-            className={`items-center justify-between bg-white w-screen lg:flex z-30  lg:w-auto lg:order-1 transition ${
+            className={`items-center justify-between bg-white  w-screen lg:flex z-30  lg:w-auto lg:order-1 transition ${
               showOptions || windowWidth >= 1024 ? 'scale-y-100 ' : 'scale-y-0 pointer-events-none'
             } ${windowWidth < 1024 ? 'fixed top-[72px] pb-5 left-0 border-b border-gray-200' : ''}`}
             id="navbar-sticky"
@@ -270,7 +270,7 @@ const Navbar = () => {
                       : 'lg:text-primary hover:bg-primary hover:text-white lg:bg-transparent')
                   }
                 >
-                  INIT 5.0
+                  INIT 6.0
                 </Link>
               </li>
             </ul>

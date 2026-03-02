@@ -24,6 +24,7 @@ const config: Config = {
         secondary_light: '#5bc8e8',
         secondary_lighter: '#84d6ee',
         secondary_lightest: '#c2eaf6',
+        secondary_bg: '#def4fa',
       },
     },
   },
