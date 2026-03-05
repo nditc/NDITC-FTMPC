@@ -69,7 +69,7 @@ const Rules = () => {
             them.{' '}
           </li>
         </ul>
-        <p className="mt-8 text-left bg-sky-50 rounded-xl p-6">
+        <p className="mt-8 text-left bg-secondary_lightest rounded-xl p-6">
           <strong className="text-primary">
             {' '}
             <SiAdobeacrobatreader className="inline mr-2 m-0 text-primary" />
@@ -77,8 +77,8 @@ const Rules = () => {
           </strong>
           &nbsp; &nbsp;
           {/* Please Update the rulebook pdf as per direction */}
-          <a href="/ftmpc_6_rulebook.pdf" className="underline hover:text-secondary" download>
-            Click to Download
+          <a href="/" className="hover:text-secondary" >
+            Will be provided soon
           </a>
         </p>
         <p className="mt-8 text-left bg-red-50 rounded-xl p-6">
