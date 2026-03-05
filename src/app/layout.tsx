@@ -40,7 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={inter.className}>
-        <NextTopLoader color={'#0a76c6'} />
+        <NextTopLoader color={'#850aff'} />
         <Suspense>
           <Navbar />
           <div id="scrollToTop" className="w-0 h-0" />
