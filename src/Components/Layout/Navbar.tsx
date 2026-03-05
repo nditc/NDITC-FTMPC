@@ -68,7 +68,7 @@ const Navbar = () => {
             className="flex items-center  z-50 space-x-3 rtl:space-x-reverse"
           >
             <img
-              src="/Images/FTMPC.svg"
+              src="/Images/FTMPC.png"
               className="h-12 max-w-[7.5rem] xsm:max-w-36 object-contain"
               alt="NDITC Logo"
               width={512}

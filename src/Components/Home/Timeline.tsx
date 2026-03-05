@@ -67,27 +67,27 @@ const Timeline = () => {
       </h1>
       <div className="container">
         <div className="flex flex-col gap-5  max-w-[1100px] mx-auto">
-          <TimelineCard title="Registration Deadline" date="7 April, 2026" />
+          <TimelineCard title="Registration Deadline" date="1 April, 2026" />
           <TimelineCard
             title="Practice Round"
             date="10 April, 2026"
             time="7:00 PM - 10:00 PM (3 hours)"
             venue="Online"
-            format="3 Questions"
+            format="6-10 Questions"
           />
           <TimelineCard
             title="Preliminary Round"
             date="11 April, 2026"
             venue="Online"
             time="7:00 PM - 10:00 PM (3 hours)"
-            format="6 Questions"
+            format="5-8 Questions"
           />
           <TimelineCard
             title="National Round"
             date="08 May, 2026"
             venue="Notre Dame College, Dhaka"
-            time="To be announced(3/4 hours)"
-            format="6 Questions"
+            time="To be announced (3/4 hours)"
+            format="5-8 Questions"
           />
           <TimelineCard title="Prize Giving Ceremony" date="09 May, 2026" time="To be announced" />
         </div>
