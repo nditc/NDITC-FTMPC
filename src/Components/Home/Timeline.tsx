@@ -70,14 +70,14 @@ const Timeline = () => {
           <TimelineCard title="Registration Deadline" date="1 April, 2026" />
           <TimelineCard
             title="Practice Round"
-            date="10 April, 2026"
+            date="23 April, 2026"
             time="7:00 PM - 10:00 PM (3 hours)"
             venue="Online"
             format="6-10 Questions"
           />
           <TimelineCard
             title="Preliminary Round"
-            date="11 April, 2026"
+            date="24 April, 2026"
             venue="Online"
             time="7:00 PM - 10:00 PM (3 hours)"
             format="5-8 Questions"
