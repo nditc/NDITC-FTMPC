@@ -60,7 +60,7 @@ const Prize = () => {
               <p>
                 Top 10 contestants in National Round wins <b className="text-yellow-500">Gold</b>,{' '}
                 <b className="text-gray-500">Silver</b> & <b className="text-orange-900">Bronze</b>{' '}
-                Medal.
+                Medal. 11-15 <b>honorable mention</b> awards will be given to top performers.
               </p>
             </div>
           </div>
