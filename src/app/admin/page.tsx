@@ -47,6 +47,7 @@ const ALL_FIELDS = [
   'imageUrl',
   'recordingLink',
   'caCode',
+  'clubPartnerCode',
 ];
 
 const FIELD_MAP: Record<string, string> = {
@@ -73,6 +74,7 @@ const FIELD_MAP: Record<string, string> = {
   imageUrl: 'Image URL',
   recordingLink: 'Recording Link',
   caCode: 'CA code',
+  clubPartnerCode: 'Club Partner code',
 };
 
 const Page = () => {

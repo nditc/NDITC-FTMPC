@@ -204,16 +204,23 @@ const Page = () => {
                 placeholder="keep blank if none"
                 notRequired
               />{' '}
-              <div className="md:col-span-2">
-                <Field
-                  state={regData.codeforcesHandle}
-                  setValue={setValue}
-                  name="codeforcesHandle"
-                  label="Codeforces Handle"
-                  type="text"
-                  notRequired
-                />
-              </div>
+              <Field
+                state={regData.clubPartnerCode}
+                setValue={setValue}
+                name="clubPartnerCode"
+                label="Club Partner code"
+                type="text"
+                placeholder="keep blank if none"
+                notRequired
+              />
+              <Field
+                state={regData.codeforcesHandle}
+                setValue={setValue}
+                name="codeforcesHandle"
+                label="Codeforces Handle"
+                type="text"
+                notRequired
+              />
               <Field
                 state={password}
                 setValue={(name, data) => setPassword(String(data))}

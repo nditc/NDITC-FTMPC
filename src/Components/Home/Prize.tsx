@@ -27,7 +27,7 @@ const Prize = () => {
               <div className="flex  flex-wrap  gap-2 text-2xl ">
                 <div className="flex min-w-[200px]  flex-1 gap-2 items-center   rounded-sm">
                   <FaMoneyBill1Wave className="text-2xl text-primary" />
-                  <b className="text-primary">21,000</b>Tk
+                  <b className="text-primary">22,000</b>Tk
                 </div>
               </div>
               <hr className="my-3"></hr>
@@ -40,7 +40,7 @@ const Prize = () => {
               <div className="flex  flex-wrap  gap-2 text-lg ">
                 <div className="flex min-w-[200px]  flex-1 gap-2 items-center   rounded-sm">
                   <p>2nd Place</p>
-                  <b className="text-primary">5,000</b>Tk
+                  <b className="text-primary">6,000</b>Tk
                 </div>
               </div>{' '}
               <div className="flex  flex-wrap  gap-2 text-lg ">

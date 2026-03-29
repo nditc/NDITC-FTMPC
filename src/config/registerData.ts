@@ -38,6 +38,7 @@ const regDataInit = {
   paymentStatus: false,
   recordingLink: '',
   caCode: '',
+  clubPartnerCode: '',
 };
 
 type regDataType = typeof regDataInit;
