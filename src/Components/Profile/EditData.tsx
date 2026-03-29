@@ -157,7 +157,26 @@ const EditData = ({ userData, setUserData }: props) => {
               placeholder="keep blank if none"
               editable={editin}
               notRequired
-            />{' '}
+            />
+            <Field
+              state={editUserData.clubPartnerCode}
+              setValue={setValue}
+              name="clubPartnerCode"
+              label="Club Partner code"
+              type="text"
+              placeholder="keep blank if none"
+              editable={editin}
+              notRequired
+            />
+            <Field
+              state={editUserData.codeforcesHandle}
+              setValue={setValue}
+              name="codeforcesHandle"
+              label="Codeforces Handle"
+              type="text"
+              editable={editin}
+              notRequired
+            />
             <div className="md:col-span-2 my-4 flex flex-col md:flex-row items-center gap-4">
               <h2 className="text-3xl flex gap-1">
                 <img
@@ -167,24 +186,6 @@ const EditData = ({ userData, setUserData }: props) => {
                 ></img>
                 <span className="text-primary">Payment</span> Info
               </h2>
-              {/* <div
-                className={
-                  'maxw-64 md:max-w-64 py-2 px-4 flex md:text-lg  items-center text-white gap-1 rounded-lg  font-bold shadow-sm ' +
-                  (userData.paymentStatus ? 'bg-secondary' : 'bg-rose-500')
-                }
-              >
-                {userData.paymentStatus ? (
-                  <>
-                    <IoCheckmarkDone className="w-6 h-6 mr-1 text-secondary_lighter" />
-                    {'Payment Verified.'}
-                  </>
-                ) : (
-                  <>
-                    <FaTimes className="w-5 h-5 mr-1 text-rose-200" />
-                    {'Verification Pending'}
-                  </>
-                )}
-              </div> */}
             </div>
             <Field
               state={editUserData.paymentPhone}
@@ -202,17 +203,6 @@ const EditData = ({ userData, setUserData }: props) => {
               type="text"
               editable={editin}
             />
-            <div className="md:col-span-2">
-              <Field
-                state={editUserData.codeforcesHandle}
-                setValue={setValue}
-                name="codeforcesHandle"
-                label="Codeforces Handle"
-                type="text"
-                editable={editin}
-                notRequired
-              />
-            </div>
             <div className="md:col-span-2 my-4 flex flex-col gap-4">
               <h2 className="text-3xl flex gap-1">
                 <span className="text-primary">Recording</span> Info
