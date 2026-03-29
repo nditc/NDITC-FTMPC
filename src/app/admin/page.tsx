@@ -46,6 +46,7 @@ const ALL_FIELDS = [
   'verified',
   'imageUrl',
   'recordingLink',
+  'caCode',
 ];
 
 const FIELD_MAP: Record<string, string> = {
@@ -71,6 +72,7 @@ const FIELD_MAP: Record<string, string> = {
   verified: 'Verified',
   imageUrl: 'Image URL',
   recordingLink: 'Recording Link',
+  caCode: 'CA code',
 };
 
 const Page = () => {

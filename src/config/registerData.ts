@@ -37,6 +37,7 @@ const regDataInit = {
   tShirtSize: '',
   paymentStatus: false,
   recordingLink: '',
+  caCode: '',
 };
 
 type regDataType = typeof regDataInit;

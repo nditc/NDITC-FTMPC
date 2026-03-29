@@ -149,11 +149,12 @@ const EditData = ({ userData, setUserData }: props) => {
               editable={editin}
             />
             <Field
-              state={editUserData.codeforcesHandle}
+              state={editUserData.caCode}
               setValue={setValue}
-              name="codeforcesHandle"
-              label="Codeforces Handle"
+              name="caCode"
+              label="CA code"
               type="text"
+              placeholder="keep blank if none"
               editable={editin}
               notRequired
             />{' '}
@@ -201,6 +202,17 @@ const EditData = ({ userData, setUserData }: props) => {
               type="text"
               editable={editin}
             />
+            <div className="md:col-span-2">
+              <Field
+                state={editUserData.codeforcesHandle}
+                setValue={setValue}
+                name="codeforcesHandle"
+                label="Codeforces Handle"
+                type="text"
+                editable={editin}
+                notRequired
+              />
+            </div>
             <div className="md:col-span-2 my-4 flex flex-col gap-4">
               <h2 className="text-3xl flex gap-1">
                 <span className="text-primary">Recording</span> Info

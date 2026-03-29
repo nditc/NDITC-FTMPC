@@ -10,6 +10,7 @@ type props = {
   notRequired?: boolean;
   editable?: boolean;
   dontShowOptional?: boolean;
+  placeholder?: string;
 };
 
 const Field = ({
@@ -21,6 +22,7 @@ const Field = ({
   notRequired,
   editable = true,
   dontShowOptional,
+  placeholder,
 }: props) => {
   return (
     <div className="flex flex-col gap-1">
@@ -35,7 +37,7 @@ const Field = ({
         type={type}
         name={name}
         required={!notRequired}
-        placeholder={label}
+        placeholder={placeholder || label}
         disabled={!editable}
         readOnly={!editable}
       />
