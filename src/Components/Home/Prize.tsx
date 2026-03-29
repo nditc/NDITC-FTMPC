@@ -27,26 +27,38 @@ const Prize = () => {
               <div className="flex  flex-wrap  gap-2 text-2xl ">
                 <div className="flex min-w-[200px]  flex-1 gap-2 items-center   rounded-sm">
                   <FaMoneyBill1Wave className="text-2xl text-primary" />
-                  <b className="text-primary">To be announced </b>Tk
+                  <b className="text-primary">21,000</b>Tk
                 </div>
               </div>
               <hr className="my-3"></hr>
               <div className="flex  flex-wrap  gap-2 text-xl ">
                 <div className="flex min-w-[200px]  flex-1 gap-2 items-center   rounded-sm">
                   <p>1st Place</p>
-                  <b className="text-primary">To be announced </b>Tk
+                  <b className="text-primary">10,000</b>Tk
                 </div>
               </div>
               <div className="flex  flex-wrap  gap-2 text-lg ">
                 <div className="flex min-w-[200px]  flex-1 gap-2 items-center   rounded-sm">
                   <p>2nd Place</p>
-                  <b className="text-primary">To be announced </b>Tk
+                  <b className="text-primary">5,000</b>Tk
                 </div>
               </div>{' '}
               <div className="flex  flex-wrap  gap-2 text-lg ">
                 <div className="flex min-w-[200px]  flex-1 gap-2 items-center   rounded-sm">
                   <p>3rd Place</p>
-                  <b className="text-primary">To be announced </b>Tk
+                  <b className="text-primary">3,000</b>Tk
+                </div>
+              </div>
+              <div className="flex  flex-wrap  gap-2 text-md ">
+                <div className="flex min-w-[200px]  flex-1 gap-2 items-center   rounded-sm">
+                  <p>4th Place</p>
+                  <b className="text-primary">2,000</b>Tk
+                </div>
+              </div>
+              <div className="flex  flex-wrap  gap-2 text-md ">
+                <div className="flex min-w-[200px]  flex-1 gap-2 items-center   rounded-sm">
+                  <p>5th Place</p>
+                  <b className="text-primary">1,000</b>Tk
                 </div>
               </div>
             </div>

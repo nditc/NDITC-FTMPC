@@ -196,13 +196,24 @@ const Page = () => {
                 label="T-Shirt Size"
               />
               <Field
-                state={regData.codeforcesHandle}
+                state={regData.caCode}
                 setValue={setValue}
-                name="codeforcesHandle"
-                label="Codeforces Handle"
+                name="caCode"
+                label="CA code"
                 type="text"
+                placeholder="keep blank if none"
                 notRequired
               />{' '}
+              <div className="md:col-span-2">
+                <Field
+                  state={regData.codeforcesHandle}
+                  setValue={setValue}
+                  name="codeforcesHandle"
+                  label="Codeforces Handle"
+                  type="text"
+                  notRequired
+                />
+              </div>
               <Field
                 state={password}
                 setValue={(name, data) => setPassword(String(data))}
