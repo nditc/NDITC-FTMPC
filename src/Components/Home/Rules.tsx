@@ -77,8 +77,8 @@ const Rules = () => {
           </strong>
           &nbsp; &nbsp;
           {/* Please Update the rulebook pdf as per direction */}
-          <a href="/" className="hover:text-secondary" >
-            Will be provided soon
+          <a href="https://drive.google.com/file/d/1LC3BcD5lUbw5rBV4aJ1lDJUFZBVuh93S/view?usp=drivesdk" className="hover:text-secondary" >
+            https://drive.google.com/file/d/1LC3BcD5lUbw5rBV4aJ1lDJUFZBVuh93S/view?usp=drivesdk
           </a>
         </p>
         <p className="mt-8 text-left bg-red-50 rounded-xl p-6">
