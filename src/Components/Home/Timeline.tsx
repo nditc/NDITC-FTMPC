@@ -67,7 +67,7 @@ const Timeline = () => {
       </h1>
       <div className="container">
         <div className="flex flex-col gap-5  max-w-[1100px] mx-auto">
-          <TimelineCard title="Registration Deadline" date="1 April, 2026" />
+          <TimelineCard title="Registration Deadline" date="17 April, 2026" />
           <TimelineCard
             title="Practice Round"
             date="23 April, 2026"
