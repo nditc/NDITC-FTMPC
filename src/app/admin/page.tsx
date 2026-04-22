@@ -105,11 +105,10 @@ const Page = () => {
         setLoadingIndexed(loadIndex, true);
         const data: any = [];
         const x = !selected
-          ? await getDocs(query(collection(db, 'participants'), where('verified', '==', true)))
+          ? await getDocs(collection(db, 'participants'))
           : await getDocs(
               query(
                 collection(db, 'participants'),
-                where('verified', '==', true),
                 where('selected', '==', true)
               )
             );
