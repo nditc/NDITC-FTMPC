@@ -24,9 +24,9 @@ const Page = ({ params }: { params: { type: string } }) => {
       (type === 'preliminary' && config?.pre_result_published)
     ) {
       fetch(
-        `https://res.cloudinary.com/db0w7ngxm/raw/upload/v1771256423/result/${
+        `https://res.cloudinary.com/db0w7ngxm/raw/upload/result/${
           type === 'preliminary' ? 'pre_result' : 'final_result'
-        }.json`
+        }.json?t=${new Date()}$`
       )
         .then((res) => res.json())
         .then((data) => {
@@ -147,6 +147,11 @@ const Page = ({ params }: { params: { type: string } }) => {
                         width={56}
                         height={56}
                         alt="img"
+                        onError={(e) => {
+                          e.currentTarget.onerror = null; // prevent infinite loop
+                          e.currentTarget.src =
+                            'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg';
+                        }}
                       />
                       <div>
                         <p className=" text-lg font-semibold leading-6">{data.name}</p>
