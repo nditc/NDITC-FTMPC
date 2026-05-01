@@ -80,6 +80,11 @@ const ProfilePic = ({ imageUrl, setImage }: { imageUrl: any; setImage: (url: str
               <img
                 className="w-[200px] h-[200px] object-cover rounded-full mx-auto my-2"
                 src={URL.createObjectURL(newImage[0])}
+                onError={(e) => {
+                  e.currentTarget.onerror = null; // prevent infinite loop
+                  e.currentTarget.src =
+                    'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg';
+                }}
                 alt=""
               />
             ) : null}
