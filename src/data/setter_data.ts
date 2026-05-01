@@ -24,7 +24,7 @@ const x: setter[] = [
   },
   {
     name: 'Md. Ashraful Islam Fahim',
-    image_url: '/Images/setters/Ashraful Islam Fahim.jpg',
+    image_url: '/Images/setters/Ashraful Islam Fahim.jpeg',
     post: 'CSE',
     dept: 'Bangladesh University of Engineering and Technology',
     profile_url: [],
