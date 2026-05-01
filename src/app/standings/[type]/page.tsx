@@ -38,7 +38,7 @@ const Page = ({ params }: { params: { type: string } }) => {
               let penaltyB = !datumB.penalty ? 0 : datumB.penalty;
 
               if (scoreA == scoreB) {
-                return -penaltyA + penaltyB;
+                return -penaltyB + penaltyA;
               }
               return -scoreA + scoreB;
             });
