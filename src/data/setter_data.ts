@@ -12,7 +12,67 @@ type setter = {
   dept?: string | null;
 };
 
-const x: setter[] = [];
+// const x: setter[] = [];
+
+const x: setter[] = [
+  {
+    name: 'Shahtaz Rahman Labib',
+    image_url: '/Images/setters/Shahtaz Rahman Labib.jpg',
+    post: 'CSE',
+    dept: 'Bangladesh University of Engineering and Technology',
+    profile_url: [],
+  },
+  {
+    name: 'Md. Ashraful Islam Fahim',
+    image_url: '/Images/setters/Ashraful Islam Fahim.jpeg',
+    post: 'CSE',
+    dept: 'Bangladesh University of Engineering and Technology',
+    profile_url: [],
+  },
+  {
+    name: 'Imad Uddin Ahmad Hasin',
+    image_url: '/Images/setters/Hasin Ahmad.jpg',
+    post: 'CSE',
+    dept: 'BRAC University',
+    profile_url: [],
+  },
+  {
+    name: 'Raad Sharar',
+    image_url: '/Images/setters/Raad Sharar.jpeg',
+    post: 'CSE',
+    dept: 'Bangladesh University of Engineering & Technology',
+    profile_url: [],
+  },
+  {
+    name: 'Wali E Zaman',
+    image_url: '/Images/setters/WEZ.jpg',
+    post: 'President',
+    dept: "Department of Programming, NDITC",
+    profile_url: [],
+  },
+  {
+    name: 'Kazi Nadid Hossain',
+    image_url: '/Images/setters/KNH.jpg',
+    post: 'Vice President',
+    dept: "Department of Programming, NDITC",
+    profile_url: [],
+  },
+
+  {
+    name: 'HRM Rafsan Amin',
+    image_url: '/Images/setters/HRA.jpg',
+    post: 'President',
+    dept: "Department of Web and App Development, NDITC",
+    profile_url: [],
+  },
+  {
+    name: 'Tajrif Hasan',
+    image_url: '/Images/setters/Tajrif Hasan.jfif',
+    post: 'Organizer',
+    dept: "NDC '26",
+    profile_url: [],
+  }
+];
 
 // const x: setter[] = [
 //   {
